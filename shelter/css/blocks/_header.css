@@ -1,7 +1,14 @@
+
+.background__image{
+  background-image: url(../../images/start-screen-gradient-background.png);
+  background-size: cover;
+  min-height: 908px;
+}
+
 .header__container {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  padding-top: 30px;
 }
 
 .logo__title {
@@ -17,6 +24,7 @@
   font-weight: 400;
   font-size: 13px;
   letter-spacing: 0.1em;
+  color: var(--color-light-xl);
   margin-top: 10px;
 }
 
@@ -32,30 +40,44 @@
 }
 
 .header__link {
+  position: relative;
   font-family: var(--second-family);
   font-weight: 400;
   font-size: 15px;
   line-height: 160%;
+  color: var(--color-dark-s);
   text-decoration: none;
+}
+
+.header__link:hover {
+  color: var(--color-light-s);
+  
 }
 
 .header__link:focus {
   outline: none;
 }
 
+.underline {
+  pointer-events: none
+}
+
+/* подчеркивание ссылок в header */
 .underline::after {
   content: "";
+  position: absolute;
   margin: 0 auto;
   display: block;
-  width: 0%;
+  width: 100%;
   background: var(--color-primary);
   height: 3px;
   transition: 0.35s, opacity 0.35s;
   border-radius: 100px;
-  opacity: 0;
-}
-
-.underline:hover::after {
-  width: 100%;
   opacity: 1;
 }
+
+/* анимация подчеркивания */
+/* .underline:hover::after {
+  width: 100%;
+  opacity: 1;
+} */ */
