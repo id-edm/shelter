@@ -20,7 +20,7 @@
 	color: var(--color-light-xl);
 }
 
-.preview__subtitle {
+.preview__text {
 	font-family: var(--second-family);
 	font-weight: 400;
 	font-size: 15px;
