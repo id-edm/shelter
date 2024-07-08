@@ -1,0 +1,65 @@
+.background__image {
+	background: url("../../images/noise-lines-transparent.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+
+.footer__container {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 40px;
+}
+
+.puppy__img {
+	display: block;
+}
+
+.contacts {
+	display: flex;
+	flex-direction: column;
+	padding-top: 16px;
+	max-width: 287px;
+	gap: 40px;
+}
+
+.contacts__title {
+	font-weight: 400;
+	font-size: 35px;
+	line-height: 128%;
+	letter-spacing: 0.06em;
+	color: var(--color-light-xl);
+}
+
+.contact__description {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.email {
+	padding-top: 2px;
+}
+
+.phone {
+	padding-top: 5px;
+}
+
+.footer__icon {
+	display: flex;
+	align-items: center;
+}
+
+.contact__text {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 115%;
+	letter-spacing: 0.06em;
+	color: var(--color-primary);
+}
+
+.geolocation {
+	margin-right: 5px;
+	max-width: 302px;
+	gap:30px;
+}
+
+
+
