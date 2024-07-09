@@ -1,0 +1,35 @@
+.help__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 80px 87px 100px;
+	gap: 55px;
+}
+
+.things__help {
+	display: flex;
+	gap:55px 120px;
+	flex-wrap: wrap;
+	justify-content: center;;
+}
+
+.help__title {
+	max-width: 310px;
+	text-align: center;
+}
+
+.thing__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 32px;
+}
+
+.thing__item-text {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 115%;
+	letter-spacing: 0.06em;
+	text-align: center;
+	color: var(--color-dark-l);
+}
