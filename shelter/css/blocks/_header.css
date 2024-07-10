@@ -15,6 +15,11 @@
   padding-top: 30px;
 }
 
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
 .logo__title {
   font-weight: 400;
   font-size: 32px;
@@ -24,6 +29,7 @@
 }
 
 .logo__subtitle {
+  text-align: center;
   font-family: var(--second-family);
   font-weight: 400;
   font-size: 13px;
@@ -40,7 +46,8 @@
 .header__list {
   display: flex;
   align-items: center;
-  gap: 35px;
+  padding-bottom: 3px;
+  gap: 36px;
 }
 
 .header__link {
@@ -55,7 +62,6 @@
 
 .header__link:hover {
   color: var(--color-light-s);
-  
 }
 
 .header__link:focus {
@@ -71,6 +77,7 @@
   content: "";
   position: absolute;
   margin: 0 auto;
+  bottom: -6px;
   display: block;
   width: 100%;
   background: var(--color-primary);
