@@ -1,4 +1,6 @@
 
+/* page-main */
+
 /* .background__image{
   background-image: url(../../images/start-screen-gradient-background.png);
   background-size: cover;
@@ -13,6 +15,7 @@
   display: flex;
   justify-content: space-between;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .logo {
@@ -69,7 +72,8 @@
 }
 
 .underline {
-  pointer-events: none
+  pointer-events: none;
+  color: var(--color-light-s);
 }
 
 /* подчеркивание ссылок в header */
@@ -92,3 +96,29 @@
   width: 100%;
   opacity: 1;
 } */ 
+
+/* page-our-pets */
+
+.logo__title-pets {
+  color: var(--color-dark-l);
+}
+
+.logo__subtitle-pets {
+  color: var(--color-dark-3xl);
+}
+
+.header__link-pets {
+  color: var(--color-dark-l);
+}
+
+.header__item .underline-pets {
+  color: var(--color-dark-3xl);
+}
+
+.header__link-pets:hover {
+  color: var(--color-light-s);
+}
+
+.header__link-pets:focus {
+  outline: none;
+}
