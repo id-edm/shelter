@@ -111,7 +111,7 @@
 
 .image {
 	transition: 0.3s ease;
-  transform: scale(1);
+	transform: scale(1);
 }
 
 .pets__card:hover .image {
@@ -126,11 +126,10 @@
 .button__arrow-svg {
 	cursor: pointer;
 	transition: 0.3s ease;
-	fill: var(--color-light-l);;
+	fill: var(--color-light-l);
+	;
 }
 
 .button__arrow-svg:hover {
 	fill: var(--color-primary-light);
 }
-
-

@@ -1,0 +1,41 @@
+.button__pagination {
+	display: flex;
+	gap: 20px;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border-radius: 100px;
+	width: 52px;
+	height: 52px;
+}
+
+.button-disabled {
+	pointer-events: none;
+	border: 2px solid var(--color-dark-s);
+}
+
+.button__inner {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 115%;
+	letter-spacing: 0.06em;
+	text-align: center;
+	color: var(--color-dark-s);
+}
+
+.btn__color-center {
+	background: var(--color-primary);
+	border: none;
+}
+
+.btn__color-border {
+	border: 2px solid var(--color-primary);
+}
+
+.btn__color span  {
+	color: var(--color-dark-3xl);
+}

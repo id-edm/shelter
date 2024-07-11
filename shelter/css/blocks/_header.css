@@ -1,4 +1,3 @@
-
 /* page-main */
 
 /* .background__image{
@@ -71,9 +70,22 @@
   outline: none;
 }
 
-.underline {
+.header__link-pets {
+  color: var(--color-dark-l);
+}
+.header__link-pets:hover {
+  color: var(--color-dark-3xl);
+}
+
+.disabled-link {
   pointer-events: none;
   color: var(--color-light-s);
+}
+
+.underline {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
 }
 
 /* подчеркивание ссылок в header */
@@ -81,21 +93,21 @@
   content: "";
   position: absolute;
   margin: 0 auto;
-  bottom: -6px;
+  left: 0;
+  right: 0;
   display: block;
   width: 100%;
   background: var(--color-primary);
   height: 3px;
-  transition: 0.35s, opacity 0.35s;
+  transition: 0.1s, opacity 0.1s;
   border-radius: 100px;
   opacity: 1;
 }
 
-/* анимация подчеркивания */
-/* .underline:hover::after {
+/* .underline:active::after {
   width: 100%;
-  opacity: 1;
-} */ 
+  opacity: 1
+} */
 
 /* page-our-pets */
 
@@ -107,16 +119,8 @@
   color: var(--color-dark-3xl);
 }
 
-.header__link-pets {
-  color: var(--color-dark-l);
-}
-
 .header__item .underline-pets {
   color: var(--color-dark-3xl);
-}
-
-.header__link-pets:hover {
-  color: var(--color-light-s);
 }
 
 .header__link-pets:focus {
