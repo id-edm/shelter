@@ -43,6 +43,10 @@
 	color: var(--color-dark-l);
 }
 
+.number__card-link {
+	text-decoration: none;
+}
+
 .donation__card {
 	display: flex;
 	align-items: center;
