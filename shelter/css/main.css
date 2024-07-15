@@ -1,15 +1,15 @@
 /* global */
-@import url('normalize.css');
-@import url('variables.css');
-@import url('fonts.css');
-@import url('settings.css');
+@import url('./normalize.css');
+@import url('./variables.css');
+@import url('./fonts.css');
+@import url('./settings.css');
 
 
-@import url('blocks/header.css');
-@import url('blocks/not-only.css');
-@import url('blocks/about.css');
-@import url('blocks/our-pets.css');
-@import url('blocks/help.css');
-@import url('blocks/donation.css');
-@import url('blocks/button-pagination.css');
-@import url('blocks/footer.css');
+@import url('./blocks/header.css');
+@import url('./blocks/not-only.css');
+@import url('./blocks/about.css');
+@import url('./blocks/our-pets.css');
+@import url('./blocks/help.css');
+@import url('./blocks/donation.css');
+@import url('./blocks/button-pagination.css');
+@import url('./blocks/footer.css');
