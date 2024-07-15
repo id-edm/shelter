@@ -11,6 +11,13 @@
 	border-radius: 100px;
 	width: 52px;
 	height: 52px;
+	transition: 0.3s ease-in-out;
+	transform: scale(1);
+}
+
+.button:hover {
+	background: var(--color-primary-light);
+	transform: scale(0.95);
 }
 
 .button-disabled {
