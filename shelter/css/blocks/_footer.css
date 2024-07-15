@@ -36,6 +36,12 @@
 
 .contact__link {
 	text-decoration: none;
+	transition: 0.1s ease-in-out;
+	transform: scale(1);
+}
+
+.contact__link:hover {
+	transform: scale(1.02);
 }
 
 .email {
