@@ -7,8 +7,9 @@
 	transition-duration: 1s;
 	cursor: pointer;
 	background: transparent;
-	z-index: 102;
+	z-index: 3;
 }
+
 .burger__line {
 	height: 2px;
 	width: 30px;
@@ -38,23 +39,29 @@
 	transition-duration: 0.3s;
 }
 .burger__btn.burger--transform {
-	transform: rotateZ(450deg);
+	transform: rotateZ(90deg);
 }
 
 .scroll--stop {
 	overflow: hidden;
 }
 
-.body--overlay {
-  position: fixed;
-  z-index: 500;
-	background: rgba(41, 41, 41, 0.6);
-	transition: 0.5s;
+.body--overlay::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.5);
+		z-index: 1;
+		display: block;
 }
 
 @media (max-width: 699px) {
 	.header__list {
 		width: 320px;
+		height: 100vh;
 		background: var(--color-dark-3xl);
 		flex-direction: column;
 		gap: 41px 0;
@@ -62,7 +69,7 @@
 		position: fixed;
 		right: 0;
 		top: 0px;
-		z-index: 100;
+		z-index: 2;
 		transform: translateX(100%);
 		transition: transform 0.5s ease-in-out;
 	}
