@@ -58,11 +58,26 @@
 		display: block;
 }
 
-@media (max-width: 699px) {
+@media (max-width: 768.5px) {
 	.header__list {
 		width: 320px;
 		height: 100vh;
-		background: var(--color-dark-3xl);
+		background: var(--color-light-xl);
+		flex-direction: column;
+		gap: 41px 0;
+		padding: 248px 39px 248px;
+		position: fixed;
+		right: 0;
+		top: 0px;
+		z-index: 2;
+		transform: translateX(100%);
+		transition: transform 0.5s ease-in-out;
+	}
+
+	.header__list-pets {
+		width: 320px;
+		height: 100vh;
+		background: var(--color-dark-xl);
 		flex-direction: column;
 		gap: 41px 0;
 		padding: 248px 39px 248px;
@@ -82,10 +97,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-	}
-
-	.header__item {
-		margin: 0 auto;
 	}
 
 	.header__link {

@@ -12,9 +12,9 @@
 		overflow: hidden;
 	}
 
-  .pets__card-xl {
+  	.pets__card-xl {
     height: 1365px;
-  }
+  	}
 }
 
 @media (max-width: 1279px) {
@@ -144,7 +144,7 @@
 		padding: 0 30px;
 	}
 
-  .preview__img {
+  	.preview__img {
 		width: 569px;
 		height: auto;
 	}
