@@ -38,6 +38,7 @@
 	flex-direction: column;
 	background: var(--color-light-s);
 	gap: 24px;
+	border-radius: 9px;
 	position: relative;
 	padding-bottom: 30px;
 }
@@ -87,6 +88,7 @@
 
 .pets__btn-more:hover {
 	background: var(--color-primary-light);
+	border-color: var(--color-primary-light);
 }
 
 .pets__link-more {
@@ -116,22 +118,28 @@
 	transform: scale(1);
 }
 
-.pets__card:hover .image {
-	transform: scale(0.95);
+.pets__card:hover {
+	box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+	background: var(--color-light-xl);
 }
 
 .button__arrow {
 	display: flex;
 	align-items: center;
+
 }
 
 .button__arrow-svg {
+	width: 52px;
+	height: 52px;
 	cursor: pointer;
+	border-radius: 100px;
+	border: 2px solid var(--color-primary);
 	transition: 0.3s ease;
-	fill: var(--color-light-l);
-	;
+	background-color: var(--color-light-l);
 }
 
 .button__arrow-svg:hover {
-	fill: var(--color-primary-light);
+	border-color: var(--color-primary-light);
+	background-color: var(--color-primary-light);
 }
