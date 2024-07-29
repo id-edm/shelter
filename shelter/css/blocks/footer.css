@@ -36,12 +36,16 @@
 
 .contact__link {
 	text-decoration: none;
-	transition: 0.1s ease-in-out;
-	transform: scale(1);
+	transition: 0.3s ease-in-out;
 }
 
-.contact__link:hover {
-	transform: scale(1.02);
+.contact__link:hover .contact__text {
+	color: var(--color-light-s);
+}
+
+.contact__link:hover .footer__icon svg {
+	fill: var(--color-light-s);
+	transform: scale(1.1);
 }
 
 .email {
@@ -61,18 +65,25 @@
 	align-items: center;
 }
 
+.footer__icon svg {
+	fill:#F1CDB3;
+	transition: 0.3s ease-in-out;
+	transform: scale(1);
+}
+
 .contact__text {
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 115%;
 	letter-spacing: 0.06em;
 	color: var(--color-primary);
+	transition: 0.3s ease;
 }
 
 .geolocation {
 	margin-right: 5px;
 	max-width: 302px;
-	gap:30px;
+	gap: 33px;
 }
 
 

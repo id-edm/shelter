@@ -9,15 +9,19 @@
 	align-items: center;
 	cursor: pointer;
 	border-radius: 100px;
+	border-color: aqua;
 	width: 52px;
 	height: 52px;
-	transition: 0.3s ease-in-out;
-	transform: scale(1);
 }
 
-.button:hover {
+.btn__color-border {
+	border: 2px solid var(--color-primary);
+	transition: 0.3s ease-in-out;
+}
+
+.btn__color-border:hover {
+	border: var(--color-primary);
 	background: var(--color-primary-light);
-	transform: scale(0.95);
 }
 
 .button-disabled {
@@ -36,11 +40,8 @@
 
 .btn__color-center {
 	background: var(--color-primary);
+	cursor: default;
 	border: none;
-}
-
-.btn__color-border {
-	border: 2px solid var(--color-primary);
 }
 
 .btn__color span  {
