@@ -58,7 +58,7 @@
 		display: block;
 }
 
-@media (max-width: 768.5px) {
+@media (max-width: 767.5px) {
 	.header__list {
 		width: 320px;
 		height: 100vh;
