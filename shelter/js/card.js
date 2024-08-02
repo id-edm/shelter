@@ -30,10 +30,6 @@ export function initCard() {
         petButton.type = "button";
         petButton.textContent = "Learn more";
 
-        petButton.addEventListener("click", () => {
-            showPetDetails(pet);
-        });
-
         petContent.appendChild(petName);
         petContent.appendChild(petButton);
 

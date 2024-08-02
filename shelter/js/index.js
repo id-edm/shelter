@@ -1,8 +1,8 @@
 import { initBurger } from './burger.js';
-import { initPopUp } from './pop-up.js';
 import { initCard } from './card.js';
+import { initPopUp } from './pop-up.js';
 
 
 initBurger();
-initPopUp();
 initCard();
+initPopUp();
