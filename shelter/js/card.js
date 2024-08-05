@@ -1,42 +1,25 @@
 import { petsData } from './arr-pets.js';
 
-export function initCard() {
-	document.addEventListener("DOMContentLoaded", () => {
-    const petsCardInner = document.querySelector(".pets__card-inner");
+function initCard() {
+  document.addEventListener("DOMContentLoaded", () => {
+      const petsCardInner = document.querySelector(".pets__card-inner");
+      
+      let cardPets = petsData.map(pets => {
+          return `
+              <article class="pets__card">
+                  <div class="pets__card-image">
+                      <img class="image" src="${pets.img}" alt="${pets.name}">
+                  </div>
+                  <div class="pets__content">
+                      <h3 class="pets__content-title">${pets.name}</h3>
+                      <button class="pets__btn-more" type="button">Learn more</button>
+                  </div>
+              </article>
+          `;
+      }).join('');
+      
+      petsCardInner.innerHTML = cardPets;
+  });
+};
 
-    petsData.forEach(pet => {
-        const petCard = document.createElement("article");
-        petCard.classList.add("pets__card");
-
-        const petImageContainer = document.createElement("div");
-        petImageContainer.classList.add("pets__card-image");
-
-        const petImage = document.createElement("img");
-        petImage.classList.add("image");
-        petImage.src = pet.img;
-        petImage.alt = pet.name;
-
-        petImageContainer.appendChild(petImage);
-
-        const petContent = document.createElement("div");
-        petContent.classList.add("pets__content");
-
-        const petName = document.createElement("h3");
-        petName.classList.add("pets__content-title");
-        petName.textContent = pet.name;
-
-        const petButton = document.createElement("button");
-        petButton.classList.add("pets__btn-more");
-        petButton.type = "button";
-        petButton.textContent = "Learn more";
-
-        petContent.appendChild(petName);
-        petContent.appendChild(petButton);
-
-        petCard.appendChild(petImageContainer);
-        petCard.appendChild(petContent);
-
-        petsCardInner.appendChild(petCard);
-    });
-	});
-}
+export { initCard };

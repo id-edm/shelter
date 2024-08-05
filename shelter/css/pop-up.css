@@ -102,11 +102,20 @@
 }
 
 .point-svg {
+	display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color:var(--color-primary);
+    border-radius: 50%;
 	margin-right: 10px;
 }
 
 .popup__content-image {
 	display: flex;
+}
+
+.img {
+	border-radius: 9px;
 }
 
 .popup__close-btn {
@@ -119,7 +128,7 @@
 	width: 52px;
 	height: 52px;
 	border-radius: 100px;
-	background: rgba(41, 41, 41, 0);
+	background: rgba(31, 5, 5, 0);
 	border: 2px solid var(--color-primary);
 	cursor: pointer;
 }

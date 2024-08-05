@@ -1,11 +1,10 @@
 // burger
 
-export function initBurger() {
+function initBurger() {
 	const body = document.body
 	const menuBtn = document.querySelector(".burger__btn");
 	const menuMobile = document.querySelector(".header__list");
 	const navItem = menuMobile.querySelectorAll(".header__item");
-	const bodyOverlay = document.querySelector('.body--overlay');
 
 	function toggleClassesBurger() {
 		body.classList.toggle("scroll--stop");
@@ -32,4 +31,6 @@ export function initBurger() {
 			toggleClassesBurger()
 		}
 	})
-}
+};
+
+export { initBurger };

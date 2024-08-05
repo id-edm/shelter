@@ -1,5 +1,5 @@
-// pop-up
-export function initPopUp() {
+
+function initPopUp() {
 	document.addEventListener("DOMContentLoaded", () => {
 		const body = document.body
 		const popUp = document.querySelector(".popup")
@@ -25,4 +25,6 @@ export function initPopUp() {
 			}
 		});
 	});
-}
+};
+
+export { initPopUp };

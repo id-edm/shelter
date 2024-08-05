@@ -1,4 +1,4 @@
-export const petsData = [
+const petsData = [
 		{
 			"name": "Jennifer",
 			"img": "../images/pets/pets-jennifer.png",
@@ -87,4 +87,6 @@ export const petsData = [
 			"diseases": ["deafness", "blindness"],
 			"parasites": ["lice", "fleas"]
 		}
-	]
+	];
+
+	export { petsData };
