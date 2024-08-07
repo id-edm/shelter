@@ -52,7 +52,11 @@
 
 @media (max-width: 990px) {
 	.puppy {
-		margin-top: 62px;
+		margin-top: 63px;
+	}
+
+	.map {
+		padding-top: 0;
 	}
 }
 
@@ -411,7 +415,11 @@
 		padding-top: 30px;
 	}
 
-  .puppy__img {
-    width: 260px;
-  }
+	.map {
+		padding-top: 5px;
+	}
+
+  	.puppy__img {
+    	width: 260px;
+  	}
 }
