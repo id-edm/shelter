@@ -31,7 +31,8 @@ function initPopUp() {
     popUp.addEventListener("click", event => {
       if (
         event.target.classList.contains("popup") ||
-        event.target.classList.contains("popup__close-btn")
+        event.target.classList.contains("popup__close-btn") ||
+        event.target.classList.contains("close__line")
       ) {
         toggleClassesPopUp()
       }
