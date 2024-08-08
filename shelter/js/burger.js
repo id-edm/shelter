@@ -1,4 +1,3 @@
-// burger
 
 function initBurger() {
 	const body = document.body
