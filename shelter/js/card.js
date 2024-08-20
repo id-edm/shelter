@@ -1,8 +1,14 @@
 import { petsData } from './arr-pets.js';
 
+function getRandomCard(arr, n) {
+    const shuffled = arr.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, n);
+}
+
 function initCard() {
   document.addEventListener("DOMContentLoaded", () => {
       const petsCardInner = document.querySelector(".pets__card-inner");
+      const randomPets = getRandomCard(petsData, 3);
       
       let cardPets = petsData.map(pets => {
           return `
