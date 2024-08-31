@@ -15,8 +15,6 @@
 	.pets__card-xl {
 		height: 897px;
 	}
-
-	
 }
 
 @media (max-width: 1279px) {
@@ -215,9 +213,10 @@
 @media (max-width: 600px) {
 
 	/* our friends */
-	.pets__card-inner {
-		order: 1;
-	}
+	.slider {
+    order: 1;
+  }
+
 
 	.pets__card-item {
 		display: flex;
