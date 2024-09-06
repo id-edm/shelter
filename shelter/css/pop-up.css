@@ -20,6 +20,7 @@
 	transition: opacity 0.5s ease-in-out, transform 0.5s ease;
 	opacity: 1;
 	transform: scale(1);
+	z-index: 1;
 }
 
 .popup--hidden {
@@ -113,6 +114,9 @@
 
 .img {
 	border-radius: 9px;
+	width: 100%;
+	 height: 100%; 
+	 object-fit: contain;
 }
 
 .popup__close-btn {

@@ -212,8 +212,8 @@
 
 	/* our friends */
 	.slider {
-    order: 1;
-  }
+		order: 1;
+	}
 
 
 	.pets__card-item {
@@ -437,15 +437,19 @@
 
 @media (max-width: 1024px) {
 	.popup__content {
-			width: 90%;
-			height: 450px;
+		width: 90%;
+		height: 450px;
 	}
 }
 
 @media (max-width: 915px) {
 	.popup__content {
-			width: 80%;
-			height: 400px;
+		width: 85%;
+		height: 400px;
+	}
+
+	.popup__content-image {
+		width: 350px;
 	}
 
 	.popup__wrapper {
@@ -468,7 +472,42 @@
 
 @media (max-width: 768px) {
 	.modal {
-			width: 60%;
-			height: 350px;
+		width: 100%;
+		height: 350px;
+	}
+
+	.popup__content-description {
+		width: 260px;
+	}
+}
+
+@media (max-width: 600px) {
+	.popup__content-image {
+		display: none;
+	}
+
+	.popup__content {
+		justify-content: center;
+	}
+
+	.popup__wrapper {
+		text-align: center;
+	}
+
+	.popup__pets-title {
+		text-align: center;
+	}
+
+	.popup__content-subtitle {
+		text-align: center;
+	}
+
+	.popup__content-description {
+		text-align: justify;
+	}
+
+	.popup__close-btn {
+		top: -58px;
+		right: -23px;
 	}
 }
