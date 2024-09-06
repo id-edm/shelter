@@ -206,8 +206,6 @@
 		justify-content: center;
 		gap: 31px 30px;
 	}
-
-	/* help */
 }
 
 @media (max-width: 600px) {
@@ -432,5 +430,45 @@
 
 	.puppy__img {
 		width: 260px;
+	}
+}
+
+/* modal-window */
+
+@media (max-width: 1024px) {
+	.popup__content {
+			width: 90%;
+			height: 450px;
+	}
+}
+
+@media (max-width: 915px) {
+	.popup__content {
+			width: 80%;
+			height: 400px;
+	}
+
+	.popup__wrapper {
+		display: flex;
+		max-width: 320px;
+		padding-top: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 37px;
+	}
+
+	.popup__content-subtitle {
+		margin-bottom: 10px;
+	}
+
+	.popup__content-description {
+		margin-bottom: 10px;
+	}
+}
+
+@media (max-width: 768px) {
+	.modal {
+			width: 60%;
+			height: 350px;
 	}
 }
