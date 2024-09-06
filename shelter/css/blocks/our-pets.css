@@ -135,7 +135,6 @@
 .button__arrow {
 	display: flex;
 	align-items: center;
-	z-index: 150;
 }
 
 .button__arrow-svg {
