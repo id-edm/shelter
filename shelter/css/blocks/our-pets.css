@@ -21,9 +21,18 @@
 	gap: 53px;
 }
 
+.slider {
+	max-width: 990px;
+	overflow: hidden;
+}
+
 .pets__card-inner {
+	max-width: 1280px;
 	display: flex;
+	justify-content: flex-start;
+	height: 432px;
 	gap: 90px;
+	transition: transform 0.5s ease-in-out;
 }
 
 .pets__card-xl {
@@ -126,7 +135,7 @@
 .button__arrow {
 	display: flex;
 	align-items: center;
-
+	z-index: 150;
 }
 
 .button__arrow-svg {

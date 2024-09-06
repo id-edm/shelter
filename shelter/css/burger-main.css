@@ -18,6 +18,7 @@
 	transition-duration: 0.3s;
 	top: 10px;
 }
+
 .burger__line:before {
 	content: "";
 	left: 0;
@@ -28,6 +29,7 @@
 	background-color: var(--color-primary);
 	transition-duration: 0.3s;
 }
+
 .burger__line:after {
 	content: "";
 	left: 0;
@@ -38,6 +40,7 @@
 	background-color: var(--color-primary);
 	transition-duration: 0.3s;
 }
+
 .burger__btn.burger--transform {
 	transform: rotateZ(90deg);
 }
@@ -60,12 +63,16 @@
 
 @media (max-width: 767.5px) {
 	.header__list {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		position: relative;
 		width: 320px;
 		height: 100vh;
 		background: var(--color-dark-3xl);
 		flex-direction: column;
 		gap: 41px 0;
-		padding: 248px 39px 248px;
 		position: fixed;
 		right: 0;
 		top: 0px;

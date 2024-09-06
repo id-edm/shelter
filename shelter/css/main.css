@@ -3,7 +3,9 @@
 @import url('./variables.css');
 @import url('./fonts.css');
 @import url('./settings.css');
-
+@import url('./burger-main.css');
+@import url('./burger-pets.css');
+@import url('./pop-up.css');
 
 @import url('./blocks/header.css');
 @import url('./blocks/not-only.css');

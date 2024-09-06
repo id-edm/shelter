@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/burger-main.css">
   <link type="image/x-icon" href="../favicon/favicon.ico" rel="shortcut icon">
-  <script src="../js/main.js" defer></script>
-  <script src="../js/burger.js" defer></script>
   <title>About the shelter</title>
 </head>
 
@@ -87,34 +85,87 @@
               <path d="M33 25V27H22V29L19 26L22 23V25H33Z" fill="#292929" />
             </svg>
           </div>
-          <div class="pets__card-inner">
-            <article class="pets__card">
-              <div class="pets__card-imgage">
-                <img class="image" src="../images/pets/pets-katrine.png" alt="Katrine">
+          <div class="slider">
+            <div class="pets__card-inner">
+              <!-- <article class="pets__card">
+                <div class="pets__card-image">
+                  <img class="image" src="../images/pets/pets-katrine.png" alt="Katrine">
+                </div>
+                <div class="pets__content">
+                  <h3 class="pets__content-title">Katrine</h3>
+                  <button class="pets__btn-more" type="button">Learn more</button>
+                </div>
+              </article>
+              <article class="pets__card">
+                <div class="pets__card-image">
+                  <img class="image" src="../images/pets/pets-jennifer.png" alt="Jennifer">
+                </div>
+                <div class="pets__content">
+                  <h3 class="pets__content-title">Jennifer</h3>
+                  <button class="pets__btn-more" type="button">Learn more</button>
+                </div>
+              </article>
+              <article class="pets__card">
+                <div class="pets__card-image">
+                  <img class="image" src="../images/pets/pets-woody.png" alt="Woody">
+                </div>
+                <div class="pets__content">
+                  <h3 class="pets__content-title">Woody</h3>
+                  <button class="pets__btn-more" type="button">Learn more</button>
+                </div>
+              </article> -->
+            </div>
+          </div>
+          <div class="popup popup--hidden">
+            <!-- <div class="popup__content">
+              <div class="popup__content-image">
+                <img class="img" src="../images/pets/pets-jennifer.png" alt="jennifer">
               </div>
-              <div class="pets__content">
-                <h3 class="pets__content-title">Katrine</h3>
-                <button class="pets__btn-more" type="button">Learn more</button>
+              <div class="popup__wrapper">
+                <div class="popup__content-description">
+                  <h3 class="popup__pets-title">Jennifer</h3>
+                  <h4 class="popup__content-subtitle">Dog - Labrador</h4>
+                  <p class="popup__content-description">
+                    Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.
+                  </p>
+                  <div class="options">
+                    <div class="popup__content-options">
+                      <span class="option__container">
+                        <span class="point-svg"></span>
+                        <span class="option__title">Age:</span> 
+                        <span class="option__subtitle">2 months</span>
+                      </span>
+                    </div>
+                    <div class="popup__content-options">
+                      <span class="option__container">
+                        <span class="point-svg"></span>
+                        <span class="option__title">Inoculations:</span>
+                        <span class="option__subtitle">none</span>
+                      </span>
+                    </div>
+                    <div class="popup__content-options">
+                      <span class="option__container">
+                        <span class="point-svg"></span>
+                        <span class="option__title">Diseases:</span>
+                        <span class="option__subtitle">none</span>
+                      </span>
+                    </div>
+                    <div class="popup__content-options">
+                      <span class="option__container">
+                        <span class="point-svg"></span>
+                        <span class="option__title">Parasites:</span>
+                        <span class="option__subtitle">none</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </article>
-            <article class="pets__card">
-              <div class="pets__card-imgagee">
-                <img class="image" src="../images/pets/pets-jennifer.png" alt="Jennifer">
-              </div>
-              <div class="pets__content">
-                <h3 class="pets__content-title">Jennifer</h3>
-                <button class="pets__btn-more" type="button">Learn more</button>
-              </div>
-            </article>
-            <article class="pets__card">
-              <div class="pets__card-imgage">
-                <img class="image" src="../images/pets/pets-woody.png" alt="Woody">
-              </div>
-              <div class="pets__content">
-                <h3 class="pets__content-title">Woody</h3>
-                <button class="pets__btn-more" type="button">Learn more</button>
-              </div>
-            </article>
+              <button class="popup__close-btn">
+                  <div class="close__line popup__close-left"></div>
+                  <div class="close__line popup__close-right"></div>
+              </button>
+            </div> -->
+            
           </div>
           <div class="button__arrow button__arrow-next">
             <svg class="button__arrow-svg" width="52" height="52" viewBox="0 0 52 52" fill="none"
@@ -409,6 +460,8 @@
       </div>
     </div>
   </footer>
+  <script src="../js/task-description/main.js" defer></script>
+  <script type="module" src="../js/index.js"></script>
 </body>
 
 </html>
