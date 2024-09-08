@@ -6,10 +6,10 @@
 	}
 
 	.pets__card-inner {
-		justify-content: center;
+		justify-content: flex-start;
 		height: 435px;
-		flex-wrap: wrap;
-		overflow: hidden;
+		/* flex-wrap: wrap; */
+		/* overflow: hidden;  */
 	}
 
 	.pets__card-xl {
@@ -24,6 +24,14 @@
 		padding-top: 30px;
 		gap: 100px;
 		margin: 0;
+	}
+
+	.slider {
+		max-width: 580px;
+	}
+
+	.pets__card-inner {
+		gap: 40px;
 	}
 
 	.preview__window-description {
@@ -117,6 +125,10 @@
 
 	.about__text {
 		line-height: 161%;
+	}
+
+	.slider {
+		max-width: 270px;
 	}
 }
 
