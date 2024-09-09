@@ -451,7 +451,6 @@
 }
 
 /* modal-window */
-
 @media (max-width: 1024px) {
 	.popup__content {
 		width: 90%;
