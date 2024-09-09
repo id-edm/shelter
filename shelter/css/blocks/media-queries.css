@@ -457,14 +457,14 @@
 			}
 		}
 
-		/* modal-window */
+/* modal-window */
 
-		@media (max-width: 1024px) {
-			.popup__content {
-				width: 90%;
-				height: 450px;
-			}
-		}
+@media (max-width: 1024px) {
+	.popup__content {
+		width: 90%;
+		height: 450px;
+	}
+}
 
 		@media (max-width: 915px) {
 			.popup__content {
