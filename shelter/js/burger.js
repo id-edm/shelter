@@ -58,7 +58,6 @@ function initBurger() {
 	})
 
 	document.addEventListener("click", event => {
-		console.log(event)
 		if (
 			event.target.classList.contains("body--overlay")
 		) {

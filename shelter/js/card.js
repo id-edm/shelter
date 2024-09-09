@@ -1,8 +1,8 @@
 import { petsData } from './arr-pets.js';
 
-function getRandomCard(arr, n) {
+function getRandomCard(arr, size) {
     const shuffled = arr.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, n);
+    return shuffled.slice(0, size);
 }
 
 function initCard() {
@@ -29,3 +29,4 @@ function initCard() {
 };
 
 export { initCard };
+export { getRandomCard };
