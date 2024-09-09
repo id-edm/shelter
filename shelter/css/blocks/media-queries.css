@@ -13,6 +13,11 @@
 	}
 
 	.pets__card-xl {
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.pets__card-xl {
 		height: 897px;
 	}
 }
