@@ -30,7 +30,7 @@
 	max-width: 1280px;
 	display: flex;
 	justify-content: flex-start;
-	height: 432px;
+	/* height: 432px; */
 	gap: 90px;
 	transition: transform 0.5s ease-in-out;
 }
