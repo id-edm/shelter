@@ -9,6 +9,20 @@ body {
   line-height: 1.6; 
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ProtestGuerrilla";
+  src: url("./assets/fonts/Protest_Guerrilla/ProtestGuerrilla-Regular.ttf");
+  font-weight: 400;
+  font-display: swap;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -60,4 +74,8 @@ a {
 .cover__img {
 	max-width: 100%;
 	border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.artist {
+  font-family: "ProtestGuerrilla";
 }
