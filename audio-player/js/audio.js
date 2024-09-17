@@ -18,7 +18,6 @@ const audioTracks = {
         artist: 'Rammstein',
         title: 'Deutschland',
         track: '../assets/tracks/Rammstein - Deutschland.mp3',
-        track: '../assets/tracks/Linkin Park - Faint.mp3',
         background: '../assets/img/bg-player/rammstein.jpg',
         cover: '../assets/img/cover/deutschland.jpg',
       }
