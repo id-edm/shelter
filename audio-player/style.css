@@ -82,6 +82,10 @@ button {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
 .info {
   display: flex;
   justify-content: center;
@@ -132,10 +136,6 @@ button {
 .svg__btn {
   display: flex;
   fill: white;
-}
-
-.svg__btn-pause {
-  display: none;
 }
 
 .progress__bar {
