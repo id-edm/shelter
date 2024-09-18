@@ -45,10 +45,18 @@ function initAudioPlayer() {
     function changeTrack(direction) {
         currentTrack = (currentTrack + direction + tracks.length) % tracks.length;
         updateTrackInfo();
-        if (isPlay) {
-            audio.play();
-        }
+        setTimeout(() => {
+            audio.src = tracks[currentTrack].track;
+            if (isPlay) {
+                audio.play();
+            }
+
+        }, 500);
     }
+
+    audio.addEventListener('ended', () => {
+        changeTrack(1);
+    });
 
     function togglePlayPauseBtn() {
         playBtn.classList.toggle('hidden', isPlay);
