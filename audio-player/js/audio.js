@@ -24,6 +24,6 @@ const audioTracks = {
     ]
   };
 
-  console.log(audioTracks);
+  console.dir(audioTracks);
 
   export { audioTracks };

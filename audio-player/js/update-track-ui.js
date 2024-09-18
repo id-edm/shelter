@@ -35,9 +35,9 @@ function updateTrackUI() {
         audio.src = track.track;
 
         audio.addEventListener('loadedmetadata', () => {
-            progressBar.max = audio.duration;
-            durationTime.textContent = audio.duration;
-            currentTime.textContent = 0; 
+            progressBar.max = formatTime(audio.duration);
+            durationTime.textContent = formatTime(audio.duration);
+            currentTime.textContent = formatTime(0);
             progressBar.value = 0; 
         });
     }
@@ -55,10 +55,16 @@ function updateTrackUI() {
         pauseBtn.classList.toggle('hidden', !isPlay);
     }
 
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60).toString().padStart(2, '0');
+        return `${minutes}:${sec}`;
+    }
+
     function updateProgress() {
         if (audio.duration) {
             progressBar.value = audio.currentTime;
-            currentTime.textContent = audio.currentTime;
+            currentTime.textContent = formatTime(audio.currentTime);
         }
     }
 
