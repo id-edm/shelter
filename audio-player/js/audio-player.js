@@ -73,6 +73,7 @@ function initAudioPlayer() {
             audio.play();
             isPlay = true;
             togglePlayPauseBtn();
+            coverImg.classList.add('scale')
         }
     });
 
@@ -81,6 +82,7 @@ function initAudioPlayer() {
             audio.pause();
             isPlay = false;
             togglePlayPauseBtn();
+            coverImg.classList.remove('scale')
         }
     });
 
