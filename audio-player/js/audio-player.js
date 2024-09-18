@@ -1,6 +1,6 @@
 import { audioTracks } from "./audio.js";
 
-function updateTrackUI() {
+function initAudioPlayer() {
     const coverImg = document.querySelector('.cover__img');
     const backgroundImg = document.querySelector('.background');
     const artist = document.querySelector('.artist');
@@ -98,4 +98,4 @@ function updateTrackUI() {
     updateTrackInfo();
 }
 
-export { updateTrackUI };
+export { initAudioPlayer };

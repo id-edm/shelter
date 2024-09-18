@@ -1,5 +1,5 @@
-import { updateTrackUI }from './update-track-ui.js';
+import { initAudioPlayer }from './audio-player.js';
 
-updateTrackUI();
+initAudioPlayer();
 
 
