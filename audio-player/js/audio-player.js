@@ -35,7 +35,7 @@ function initAudioPlayer() {
         audio.src = track.track;
 
         audio.addEventListener('loadedmetadata', () => {
-            progressBar.max = formatTime(audio.duration);
+            progressBar.max = audio.duration;
             durationTime.textContent = formatTime(audio.duration);
             currentTime.textContent = formatTime(0);
             progressBar.value = 0; 
