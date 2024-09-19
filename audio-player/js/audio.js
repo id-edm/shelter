@@ -5,7 +5,7 @@ const audioTracks = {
         title: 'Numb',
         track: '../assets/tracks/Linkin Park - Faint.mp3',
         background: '../assets/img/bg-player/linkin-park.jpg',
-        cover: '../assets/img/cover/meteora.jpg',
+        cover: '../assets/img/cover/numb.jpg',
       },
       {
         artist: 'MakSim',
