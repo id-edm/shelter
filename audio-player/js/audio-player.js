@@ -18,11 +18,12 @@ function initAudioPlayer() {
     const tracks = audioTracks.tracks;
     let audio = new Audio(tracks[currentTrack].track);
 
-    function updateTrackBackground(imageUrl) {
-        if (backgroundImg) {
-            backgroundImg.style.backgroundImage = `url(${imageUrl})`;
-        }
-    }
+    audio.addEventListener('loadedmetadata', () => {
+        progressBar.max = audio.duration;
+        durationTime.textContent = formatTime(audio.duration);
+        currentTime.textContent = formatTime(0);
+        progressBar.value = 0; 
+    });
 
     function updateTrackInfo() {
         if (!tracks.length) return;
@@ -33,30 +34,25 @@ function initAudioPlayer() {
         artist.textContent = track.artist;
         trackTitle.textContent = track.title;
         audio.src = track.track;
-
-        audio.addEventListener('loadedmetadata', () => {
-            progressBar.max = audio.duration;
-            durationTime.textContent = formatTime(audio.duration);
-            currentTime.textContent = formatTime(0);
-            progressBar.value = 0; 
-        });
     }
 
-    function changeTrack(direction) {
-        currentTrack = (currentTrack + direction + tracks.length) % tracks.length;
-        updateTrackInfo();
-        setTimeout(() => {
-            audio.src = tracks[currentTrack].track;
-            if (isPlay) {
-                audio.play();
-            }
-
-        }, 500);
+    function updateTrackBackground(imageUrl) {
+        if (backgroundImg) {
+            backgroundImg.style.backgroundImage = `url(${imageUrl})`;
+        }
     }
 
-    audio.addEventListener('ended', () => {
-        changeTrack(1);
-    });
+    function togglePlayPause() {
+        if (isPlay) {
+            audio.pause();
+            coverImg.classList.remove('scale');
+        } else {
+            audio.play();
+            coverImg.classList.add('scale');
+        }
+        isPlay = !isPlay;
+        togglePlayPauseBtn();
+    }
 
     function togglePlayPauseBtn() {
         playBtn.classList.toggle('hidden', isPlay);
@@ -76,21 +72,26 @@ function initAudioPlayer() {
         }
     }
 
-    playBtn.addEventListener('click', () => {
-        if (!isPlay) {
-            audio.play();
-            isPlay = true;
-            togglePlayPauseBtn();
-            coverImg.classList.add('scale')
-        }
-    });
+    function changeTrack(direction) {
+        currentTrack = (currentTrack + direction + tracks.length) % tracks.length;
+        updateTrackInfo();
+        setTimeout(() => {
+            audio.src = tracks[currentTrack].track;
+            if (isPlay) {
+                audio.play();
+            }
+        }, 500);
+    }
 
-    pauseBtn.addEventListener('click', () => {
-        if (isPlay) {
-            audio.pause();
-            isPlay = false;
-            togglePlayPauseBtn();
-            coverImg.classList.remove('scale')
+    audio.addEventListener('ended', () => changeTrack(1));
+
+    playBtn.addEventListener('click', togglePlayPause);
+    pauseBtn.addEventListener('click', togglePlayPause);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {
+            e.preventDefault(); 
+            togglePlayPause();
         }
     });
 
