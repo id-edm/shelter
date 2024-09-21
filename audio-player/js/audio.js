@@ -2,10 +2,10 @@ const audioTracks = {
     tracks: [
       {
         artist: 'Linkin Park',
-        title: 'Numb',
+        title: 'Faint',
         track: 'assets/tracks/Linkin-Park.mp3',
         background: 'assets/img/bg-player/linkin-park.jpg',
-        cover: 'assets/img/cover/numb.jpg',
+        cover: 'assets/img/cover/faint.jpg',
       },
       {
         artist: 'MakSim',
@@ -54,7 +54,7 @@ const audioTracks = {
         title: 'Mockingbird',
         track: 'assets/tracks/Eminem.mp3',
         background: 'assets/img/bg-player/eminem.jpg',
-        cover: 'assets/img/cover/mockingbird .jpg',
+        cover: '../assets/img/cover/mockingbird.jpg',
       }
     ]
   };
