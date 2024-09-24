@@ -7,9 +7,38 @@ const resultsSearch = document.querySelector('.results')
 let page = 1;
 const perPage = 12;
 
-// Поиск картинок
+// Случайный запрос из заданного массива строк.
+function getRandomQuery() {
+	const randomQueries = [
+		'nature', 
+    'city', 
+    'technology', 
+    'abstract', 
+    'world', 
+    'cocktail', 
+    'chapel', 
+    'foreign language', 
+    'groomed', 
+    'toast',
+    'sunset', 
+    'animals', 
+    'food', 
+    'landscape', 
+    'music', 
+    'travel', 
+    'people', 
+    'art', 
+    'sports', 
+    'architecture', 
+    'vintage'];
+	const randomIndex = Math.floor(Math.random() * randomQueries.length);
+		return randomQueries[randomIndex];
+}
+
+
+// Поиск картинок.
 async function searchImages(){
-    const getData = searchInput.value;
+    const getData = searchInput.value || getRandomQuery();
     const url = `https://api.unsplash.com/search/photos?query=${getData}&page=${page}&per_page=${perPage}&client_id=${accessKey}`;
 
     const response = await fetch(url);

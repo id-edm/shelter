@@ -121,7 +121,7 @@ body {
 .clear::before {
   position: absolute;
   content: '';
-  width: 1px;
+  width: 2px;
   left: 10px;
   top: 3px;
   height: 15px;
@@ -135,7 +135,7 @@ body {
   content: '';
   left: 10px;
   top: 3px;
-  width: 1px;
+  width: 2px;
   height: 15px;
   transform: rotate(45deg);
   transition: background-color, 0.2s ease-in;
@@ -156,6 +156,7 @@ body {
 
 .image__gallery-display {
 	flex-grow: 1;
+	margin: 0 30px;
 }
 
 .results {
@@ -174,12 +175,13 @@ body {
 .results__search-img {
   width: 100%;
   object-fit: cover;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .results__search-img:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.9;
+	transform: scale(1.05);
 }
 
 .footer {
