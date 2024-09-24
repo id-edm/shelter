@@ -3,7 +3,8 @@ const accessKey = 'KIFJow7qbNoe-AkxlJEvCpyN_Fk1j59jxpd96PLD0hU';
 
 const search = document.querySelector('.search');
 const searchInput = document.querySelector('.search__input');
-const resultsSearch = document.querySelector('.results')
+const resultsSearch = document.querySelector('.results');
+const clearBtn = document.querySelector('.clear');
 let page = 1;
 const perPage = 12;
 
@@ -69,3 +70,24 @@ search.addEventListener('submit',(event) => {
 });
 
 searchImages();
+
+// Устанавливаем фокус на поле ввода.
+window.onload = function() {
+    searchInput.focus();
+};
+
+// Показываем кнопку очистки, когда есть текст в поле ввода.
+searchInput.addEventListener('input', () => {
+    if (searchInput.value) {
+        clearBtn.style.display = 'block';
+    } else {
+        clearBtn.style.display = 'none';
+    }
+});
+
+// Очистка поля ввода при клике на кнопку clear.
+clearBtn.addEventListener('click', () => {
+    searchInput.value = ''; 
+    clearBtn.style.display = 'none';
+    searchInput.focus(); 
+});
