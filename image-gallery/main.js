@@ -66,6 +66,9 @@ async function searchImages(){
 
 search.addEventListener('submit',(event) => {
     event.preventDefault();
+    if (!searchInput.value.trim()) {
+      return;
+    }
     searchImages();
 });
 
