@@ -5,6 +5,8 @@ const search = document.querySelector('.search');
 const searchInput = document.querySelector('.search__input');
 const resultsSearch = document.querySelector('.results');
 const clearBtn = document.querySelector('.clear');
+const header = document.querySelector('.header');
+ 
 let page = 1;
 const perPage = 12;
 
@@ -94,3 +96,33 @@ clearBtn.addEventListener('click', () => {
     clearBtn.style.display = 'none';
     searchInput.focus(); 
 });
+
+// Скрывает заголовок при прокрутке вниз и показывает его при прокрутке вверх.
+const defaultOffset = 150;
+let lastScroll = 0;
+let isScrolling;
+
+const scrollPosition = () =>  window.scrollY || document.documentElement.scrollTop;
+const containHide = () => header.classList.contains('hide');
+
+window.addEventListener("scroll", () => {
+	clearTimeout(isScrolling)
+	if (
+		scrollPosition() > lastScroll &&
+		!containHide() &&
+		scrollPosition() > defaultOffset
+	) {
+		header.classList.add("hide")
+	} else if (scrollPosition() < lastScroll && containHide()) {
+		header.classList.remove("hide")
+	}
+
+	lastScroll = scrollPosition()
+
+  // Таймер для открытия header через 2с, если он скрыт.
+	isScrolling = setTimeout(() => {
+		if (containHide()) {
+			header.classList.remove("hide")
+		}
+	}, 2000)
+})
