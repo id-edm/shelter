@@ -91,11 +91,6 @@ body {
   transition: background-color, color 0.2s ease-in;
 }
 
-.search__btn:hover {
-  background-color: rgb(93, 201, 231);
-  color: black;
-}
-
 /*крестик для очистки инпута*/
 .wrapper__input {
   width: 500px;
@@ -143,14 +138,6 @@ body {
   background: rgb(175, 180, 200);
 }
 
-.clear:hover::after {
-  background-color: black;
-}
-
-.clear:hover::before {
-  background: black;
-}
-
 .search__btn:active {
   background-color: rgb(57, 167, 201);
 }
@@ -166,6 +153,7 @@ body {
 }
 
 .results__search {
+  position: relative;
   display: flex;
   height: 300px;
   overflow: hidden;
@@ -176,13 +164,7 @@ body {
 .results__search-img {
   width: 100%;
   object-fit: cover;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.results__search-img:hover {
-  cursor: pointer;
-  opacity: 0.9;
-	transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
 .footer {
@@ -197,4 +179,58 @@ body {
 .footer-icon {
   display: flex;
   align-items: center;
+}
+
+.download {
+  position: absolute;
+  padding-left: 20px;
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  right: 18px;
+  top: 90%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background-image: url('../assets/icons/download.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@media (hover: hover) {
+  .results__search:hover .results__search-img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
+  .clear:hover::after {
+    background-color: black;
+  }
+  
+  .clear:hover::before {
+    background: black;
+  }
+
+  .search__btn:hover {
+    background-color: rgb(93, 201, 231);
+    color: black;
+  }
+
+  .download:hover {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .results {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .results {
+    column-count: 1;
+  }
 }

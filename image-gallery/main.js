@@ -56,12 +56,17 @@ async function searchImages(){
     results.forEach((result) => {
         const imageWrapper = document.createElement('div');
 				imageWrapper.classList.add ('results__search');
+        resultsSearch.appendChild(imageWrapper);
+
         const image = document.createElement('img');
         image.classList.add ('results__search-img');
+        imageWrapper.appendChild(image);
         image.src = result.urls.small;
 
-        imageWrapper.appendChild(image);
-        resultsSearch.appendChild(imageWrapper);
+        const downloadLink = document.createElement('a');
+        downloadLink.classList.add('download')
+        downloadLink.href = result.links.download;
+        imageWrapper.appendChild(downloadLink);    
     });
 
 }
