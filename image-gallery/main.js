@@ -66,7 +66,12 @@ async function searchImages(){
         const downloadLink = document.createElement('a');
         downloadLink.classList.add('download')
         downloadLink.href = result.links.download;
-        imageWrapper.appendChild(downloadLink);    
+        imageWrapper.appendChild(downloadLink);
+        
+        const numberLikes = document.createElement('div');
+        numberLikes.classList.add('likes')
+        numberLikes.textContent = result.likes;
+        imageWrapper.appendChild(numberLikes);
     });
 
 }
