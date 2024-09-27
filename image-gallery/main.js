@@ -72,6 +72,17 @@ async function searchImages(){
         numberLikes.classList.add('likes')
         numberLikes.textContent = result.likes;
         imageWrapper.appendChild(numberLikes);
+
+        const authorPhoto  = document.createElement('span');
+        authorPhoto.classList.add('author__photo')
+        const firstName = result.user.first_name ? result.user.first_name : '';
+        const lastName = result.user.last_name ? result.user.last_name : '';
+        function capitalizeFirstLetter(name) {
+          if (!name) return ''; 
+          return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+      }
+        authorPhoto.textContent = (firstName || lastName) ? `${capitalizeFirstLetter(firstName)} ${capitalizeFirstLetter(lastName)}`.trim() : ''
+        imageWrapper.appendChild(authorPhoto);
     });
 
 }
