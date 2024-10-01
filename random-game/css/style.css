@@ -1,22 +1,22 @@
+
 @font-face {
-  font-family: Ubuntu-Regular;
-  src: url('../assets/fonts/Ubuntu-Regular.ttf');
+  font-family: DaMiOne;
+  src: url('../assets/fonts/DaMiOne-Regular.ttf');
 }
 
 @font-face {
-  font-family: Ubuntu-Medium;
-  src: url('../assets/fonts/Ubuntu-Medium.ttf');
-}
-
-@font-face {
-  font-family: Ubuntu-Bold;
-  src: url('../assets/fonts/Ubuntu-Bold.ttf');
+  font-family: Westminster;
+  src: url('../assets/fonts/Westminster-Alen.ttf');
 }
 
 * {
   box-sizing: border-box;
-  font-family: Ubuntu-Regular;
 }
+
+h1,h2,h3,p {
+	margin: 0;
+}
+
 html, body {
 	height: 100%;
 	margin: 0;
@@ -33,6 +33,10 @@ body {
 .header {
 	display: flex;
 	justify-content: center;
+	font-family: Westminster;
+	letter-spacing: 10px;
+	font-size: 25px;
+	margin: 0;
 }
 
 .main {
@@ -42,22 +46,31 @@ body {
 }
 
 .canvas {
-	display: block;
-	width: 400px;
+	width: 320px;
 	height: 400px;
-	background-color: rgb(114, 90, 131);
+	background-color: rgba(168, 168, 168, 0.5);
 }
 
 .footer {
+	font-family: DaMiOne;
+	letter-spacing: 1px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(168, 168, 168, 0.5);
   font-size: 20px;
-  padding: 0 20px;
+	font-weight: 700;
+  padding: 10px 20px;
 }
 
 .footer-icon {
   display: flex;
   align-items: center;
+	
+}
+
+.author {
+	font-family: Westminster;
+	font-size: 25px;
+	letter-spacing: 3px;
 }
