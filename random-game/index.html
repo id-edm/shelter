@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,24 +11,55 @@
 </head>
 
 <body>
-	<header class="header">
-		<h1 class="title">SNAKE</h1>
-	</header>
 	<main class="main">
+		<div class="total__score">
+			<h2 class="controls__results">RESULTS</h2>
+		</div>
+		<div class="canvas__wrapper">
+			<h1 class="title">SNAKE</h1>
 			<canvas class="canvas" width="320" height="400">
 				snake game
 			</canvas>
+			<div class="score">
+				<span class="score__title">SCORE</span>
+				<span class="score__result">00</span>
+			</div>
+		</div>
+		<div class="controls">
+			<h2 class="controls__results">CONTROLS</h2>
+			<p class="controls__text">To control the game,
+				use the following keys:</p>
+				<div class="controls__btn-wrapper">
+					<ul class="controls__list-top">
+						<li class="controls__text">
+							<img class="controls__btn-svg" src="./assets/icons/arrow_up.svg" alt="up">
+						</li>
+					</ul>
+					<ul class="controls__list-bottom">
+						<li class="controls__text">
+							<img class="controls__btn-svg" src="./assets/icons/arrow_left.svg" alt="left">
+						</li>
+						<li class="controls__text">
+							<img class="controls__btn-svg" src="./assets/icons/arrow_down.svg" alt="down">
+						</li>
+						<li class="controls__text">
+							<img class="controls__btn-svg" src="./assets/icons/arrow_right.svg" alt="right">
+						</li>
+					</ul>
+				</div>
+				<p class="controls__text">To play and pause the game use the spacebar.</p>
+		</div>
 	</main>
 	<footer class="footer">
 		<a class="link" href="https://github.com/id-edm" target="_blank">
-			<img class="footer-icon" src="./assets/icons/github.svg">
+			<img class="footer-icon" src="./assets/icons/github.svg" alt="github">
 		</a>
-		<p class="created-date"> SNAKE <span class="author">by id-edm</span></p>
-		<p class="created-date"> <span class="author">september</span> 2024</p>
+		<p class="created-date"> SNAKE <span class="author">by id-edm</span> 2024 </p>
 		<a class="link" href="https://rs.school/courses/javascript-ru" target="_blank">
-			<img class="footer-icon" src="./assets/icons/RS_recolored.svg">
+			<img class="footer-icon" src="./assets/icons/RS_recolored.svg" alt="RS">
 		</a>
 	</footer>
 	<script src="./main.js"></script>
 </body>
+
 </html>

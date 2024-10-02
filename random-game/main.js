@@ -27,13 +27,13 @@ function draw() {
 		}
 		ctx.stroke()
 	}
-	
+
 	drawGrid()
 
 	ctx.shadowColor = "rgba(0,0,0,0.5)"
 	ctx.shadowBlur = 4
 	for (let i = 0; i < snake.length; i++) {
-		ctx.fillStyle = "green"
+		ctx.fillStyle = "rgba(168, 168, 18, 0.5)"
 		ctx.fillRect(snake[i].x, snake[i].y, cageSize, cageSize)
 		ctx.strokeStyle = "black"
 		ctx.lineWidth = 2
