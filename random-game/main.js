@@ -45,6 +45,18 @@ function moveSnake() {
 		x: snake[0].x + directionSnake.x,
 		y: snake[0].y + directionSnake.y,
 	};
+	//выход за границы канваса
+	if (newHead.x >= canvasWidth) {
+		newHead.x = 0;
+	} else if (newHead.x < 0) {
+		newHead.x = canvasWidth - cageSize;
+	}
+	
+	if (newHead.y >= canvasHeight) {
+		newHead.y = 0;
+	} else if (newHead.y < 0) {
+		newHead.y = canvasHeight - cageSize;
+	};
 	//проверка, съела ли змея еду
 	if (newHead.x === food.x && newHead.y === food.y) {
 		food = randomPosition()
