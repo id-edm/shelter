@@ -1,5 +1,6 @@
 const canvas = document.querySelector(".canvas")
 const ctx = canvas.getContext("2d")
+const scoreElement = document.querySelector(".score__result")
 
 const cageSize = 20
 const canvasWidth = 320
@@ -7,6 +8,7 @@ const canvasHeight = 400
 let snake = [{ x: randomPosition().x, y: randomPosition().y }];
 let directionSnake = {x: 0, y: 0 };
 let food = randomPosition();
+let score = 0;
 
 function randomPosition() {
 	return {
@@ -46,6 +48,8 @@ function moveSnake() {
 	//проверка, съела ли змея еду
 	if (newHead.x === food.x && newHead.y === food.y) {
 		food = randomPosition()
+		score++;
+		scoreElement.textContent = score.toString().padStart(2, '0');
 	} else {
 		snake.pop();
 	}
