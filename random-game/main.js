@@ -23,17 +23,17 @@ function changeDirection(event) {
 
 	switch (key) {
 		case "ArrowUp":
-			directionSnake = { x: 0, y: -cageSize };
-			break;
+				directionSnake = { x: 0, y: -cageSize };
+					break;
 		case "ArrowDown":
-			directionSnake = { x: 0, y: cageSize };
-			break;
+				directionSnake = { x: 0, y: cageSize };
+					break;
 		case "ArrowLeft":
-			directionSnake = { x: -cageSize, y: 0 };
-			break;
+				directionSnake = { x: -cageSize, y: 0 };
+					break;
 		case "ArrowRight":
-			directionSnake = { x: cageSize, y: 0 };
-			break;
+				directionSnake = { x: cageSize, y: 0 };
+					break;
 	}
 }
 
@@ -51,7 +51,7 @@ function moveSnake() {
 	} else if (newHead.x < 0) {
 		newHead.x = canvasWidth - cageSize;
 	}
-	
+
 	if (newHead.y >= canvasHeight) {
 		newHead.y = 0;
 	} else if (newHead.y < 0) {
@@ -66,6 +66,12 @@ function moveSnake() {
 		snake.pop();
 	}
 	snake.unshift(newHead);
+
+	for (let i = 1; i < snake.length; i++) {
+		if (newHead.x === snake[i].x && newHead.y === snake[i].y) {
+				alert("Game Over!");
+		}
+}
 }
 
 function draw() {
