@@ -1,6 +1,12 @@
-const canvas = document.querySelector(".canvas")
-const ctx = canvas.getContext("2d")
-const scoreElement = document.querySelector(".score__result")
+const canvas = document.querySelector(".canvas");
+const ctx = canvas.getContext("2d");
+const scoreElement = document.querySelector(".score__result");
+const modalStart = document.getElementById("modalStart");
+const startBtn = document.querySelector(".start__button");
+const modalPause = document.getElementById("modalPause");
+const modalGameOver = document.getElementById("modalGameOver");
+const restartBtn = document.querySelector(".restart__button");
+
 
 const cageSize = 20
 const canvasWidth = 320
@@ -9,6 +15,65 @@ let snake = [{ x: randomPosition().x, y: randomPosition().y }];
 let directionSnake = {x: 0, y: 0 };
 let food = randomPosition();
 let score = 0;
+let isPaused = false;
+let gameInterval = 0;
+
+function startGame() {
+	isPaused = false;
+	directionSnake = { x: 20, y: 0 };
+	gameInterval = setInterval(gameLoop, 250);
+}
+
+function resetGame() {
+	snake = [{ x: randomPosition().x, y: randomPosition().y }];
+	directionSnake = { x: 20, y: 0 };
+	food = randomPosition();
+	score = 0;
+	scoreElement.textContent = score.toString().padStart(2, '0');
+}
+
+function pauseGame() {
+	isPaused = true;
+	clearInterval(gameInterval);
+	gameInterval = null; 
+	modalPause.classList.add("active"); 
+}
+
+function resumeGame() {
+	isPaused = false;
+	gameInterval = setInterval(gameLoop, 250);
+	modalPause.classList.remove("active");
+}
+
+function gameOver() {
+	clearInterval(gameInterval);
+	gameInterval = null;
+	modalGameOver.classList.add("active");
+}
+
+startBtn.addEventListener("click", () => {
+	modalStart.classList.remove("active");
+	startGame();
+});
+
+document.addEventListener("keydown", (event) => {
+	if (event.code === "Space") {
+		if (modalGameOver.classList.contains("active") || modalStart.classList.contains("active") ) {
+			return;
+		} 
+			if (isPaused) {
+					resumeGame();
+			} else {
+					pauseGame();
+			}
+	}
+});
+
+restartBtn.addEventListener("click", () => {
+	modalGameOver.classList.remove("active");
+	resetGame();
+	startGame();
+});
 
 function randomPosition() {
 	return {
@@ -18,9 +83,8 @@ function randomPosition() {
 }
 
 function changeDirection(event) {
-	const key = event.key;
-	console.log(event)
-
+	const key = event.key
+	
 	switch (key) {
 		case "ArrowUp":
 			if (directionSnake.y === 0)
@@ -73,7 +137,7 @@ function moveSnake() {
 
 	for (let i = 1; i < snake.length; i++) {
 		if (newHead.x === snake[i].x && newHead.y === snake[i].y) {
-				alert("Game Over!");
+			gameOver();    
 		}
 }
 }
@@ -136,6 +200,4 @@ function gameLoop() {
 	moveSnake();
 	draw(); 
 }
-
-setInterval(gameLoop, 250);
 

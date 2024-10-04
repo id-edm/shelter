@@ -58,7 +58,7 @@ body {
 .main {
 	display: flex;
 	justify-content: space-around;
-	align-items: flex-start;
+	align-items: flex-start; 
 	flex-grow: 1;
 }
 
@@ -112,9 +112,15 @@ body {
 	width: 45px;
 }
 
-.canvas {
+.canvas__wrapper {
+	position: relative;
 	width: 320px;
 	height: 400px;
+}
+
+.canvas {
+	width: 100%;
+	height: 100%;
 	background-color: rgba(168, 168, 168, 0.5);
 }
 
@@ -122,7 +128,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
+	gap: 10px;
 }
 
 .score__title {
@@ -171,4 +177,64 @@ body {
 	1px 1px 0 #000;
 	;
 	letter-spacing: 3px;
+}
+
+.modal {
+	position: absolute;
+	display: none;
+	width: 100%;
+	height: 100%;
+	top: 68%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(168, 168, 168, 0.8);
+	padding: 155px 20px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	text-align: center;
+}
+.active {
+	display: block;
+}
+
+.modal__title {
+	font-family: Westminster;
+	font-size: 20px;
+	letter-spacing: 2px;
+	padding-bottom: 10px;
+	color: rgba(168, 168, 18, 0.7);
+	text-shadow: -1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+	font-weight: 900;
+}
+
+.modal__pause-text {
+	font-family: Monocraft;
+}
+
+.modal__btn {
+  padding: 10px 20px;
+	font-family: DaMiOne;
+  font-size: 14px;
+	letter-spacing: 1px;
+  color: white;
+  background-color: #000; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px rgba(100, 135, 3, 0.679);
+  transition: background-color 0.3s ease;
+}
+
+.modal__btn:hover {
+  background-color: #76760d;
+	font-weight: 800;
+	color: black;
+}
+
+.modal__btn:active {
+  background-color: #45a049;
+  box-shadow: 0 2px #3e8e41;
+  transform: translateY(2px);
 }
