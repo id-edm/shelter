@@ -23,15 +23,19 @@ function changeDirection(event) {
 
 	switch (key) {
 		case "ArrowUp":
+			if (directionSnake.y === 0)
 				directionSnake = { x: 0, y: -cageSize };
 					break;
 		case "ArrowDown":
+			if (directionSnake.y === 0)
 				directionSnake = { x: 0, y: cageSize };
 					break;
 		case "ArrowLeft":
+			if (directionSnake.x === 0)
 				directionSnake = { x: -cageSize, y: 0 };
 					break;
 		case "ArrowRight":
+			if (directionSnake.x === 0)
 				directionSnake = { x: cageSize, y: 0 };
 					break;
 	}
