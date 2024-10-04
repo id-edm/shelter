@@ -133,7 +133,6 @@ body {
 
 .score__title {
 	font-family: Westminster;
-	font-size: 25px;
 	letter-spacing: 10px;
 	color: rgba(168, 168, 18, 0.7);
 	text-shadow: -1px -1px 0 #000,
@@ -145,7 +144,6 @@ body {
 
 .score__result {
 	font-family: Monocraft;
-	font-size: 25px;
 	font-weight: 900;
 }
 

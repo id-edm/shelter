@@ -6,6 +6,7 @@ const startBtn = document.querySelector(".start__button");
 const modalPause = document.getElementById("modalPause");
 const modalGameOver = document.getElementById("modalGameOver");
 const restartBtn = document.querySelector(".restart__button");
+const speedElement = document.querySelector(".speed__result");
 
 
 const cageSize = 20
@@ -17,11 +18,15 @@ let food = randomPosition();
 let score = 0;
 let isPaused = false;
 let gameInterval = 0;
+let gameSpeed = 300;
+let speedLevel = 1;
+
 
 function startGame() {
 	isPaused = false;
 	directionSnake = { x: 20, y: 0 };
-	gameInterval = setInterval(gameLoop, 250);
+	gameInterval = setInterval(gameLoop, gameSpeed);
+	speedElement.textContent = speedLevel.toString().padStart(2, '0');
 }
 
 function resetGame() {
@@ -29,7 +34,16 @@ function resetGame() {
 	directionSnake = { x: 20, y: 0 };
 	food = randomPosition();
 	score = 0;
+	gameSpeed = 300;
+	speedLevel = 1;
 	scoreElement.textContent = score.toString().padStart(2, '0');
+	speedElement.textContent = speedLevel.toString().padStart(2, '0');;
+}
+
+function updateGameSpeed() {
+	clearInterval(gameInterval);
+	gameInterval = setInterval(gameLoop, gameSpeed);
+	speedElement.textContent = speedLevel.toString().padStart(2, '0');
 }
 
 function pauseGame() {
@@ -41,7 +55,7 @@ function pauseGame() {
 
 function resumeGame() {
 	isPaused = false;
-	gameInterval = setInterval(gameLoop, 250);
+	gameInterval = setInterval(gameLoop, gameSpeed);
 	modalPause.classList.remove("active");
 }
 
@@ -130,6 +144,11 @@ function moveSnake() {
 		food = randomPosition()
 		score++;
 		scoreElement.textContent = score.toString().padStart(2, '0');
+			if (score % 5 === 0 && gameSpeed > 100) {
+				gameSpeed -= 20;
+				speedLevel++; 
+				updateGameSpeed();
+		}
 	} else {
 		snake.pop();
 	}
