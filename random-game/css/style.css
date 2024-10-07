@@ -1,76 +1,255 @@
-
 @font-face {
-  font-family: DaMiOne;
-  src: url('../assets/fonts/DaMiOne-Regular.ttf');
+	font-family: DaMiOne;
+	src: url('../assets/fonts/DaMiOne-Regular.ttf');
 }
 
 @font-face {
-  font-family: Westminster;
-  src: url('../assets/fonts/Westminster-Alen.ttf');
+	font-family: Westminster;
+	src: url('../assets/fonts/Westminster-Alen.ttf');
+}
+
+@font-face {
+	font-family: Monocraft;
+	src: url('../assets/fonts/Monocraft.otf');
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-h1,h2,h3,p {
+h1,
+h2,
+h3,
+p,
+ul,
+li {
 	margin: 0;
+	padding: 0;
 }
 
-html, body {
+html,
+body {
 	height: 100%;
 	margin: 0;
 }
 
 body {
-  line-height: 1.8;
-  background-color: rgb(230, 221, 221);
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+	line-height: 1.8;
+	background-color: rgb(230, 221, 221);
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
 }
 
-.header {
+.title {
 	display: flex;
 	justify-content: center;
-	font-family: Westminster;
+	font-family: DaMiOne;
+	color: rgba(168, 168, 18, 0.7);
+	text-shadow: -1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
 	letter-spacing: 10px;
-	font-size: 25px;
+	font-size: 40px;
 	margin: 0;
 }
 
 .main {
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
+	align-items: center; 
 	flex-grow: 1;
 }
 
-.canvas {
+.total__score {
+	width: 250px;   
+}
+
+.controls {
+	width: 250px;
+	padding: 0 20px;   
+}
+
+.controls__results {
+	display: flex;
+	justify-content: center;
+	color: rgba(241, 241, 37, 0.5);
+	text-shadow: -1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+	font-weight: 900;
+	font-family: Westminster;
+	font-size: 25px;
+	letter-spacing: 10px;
+	font-weight: 700;
+}
+ 
+.canvas__container {
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 10px;
+}
+
+.controls__btn-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 0;
+	gap: 5px;
+}
+
+.controls__text {
+	display: flex;
+	align-items: center;
+	font-family: Monocraft;
+	font-size: 14px;
+}
+
+.controls__list-bottom {
+	display: flex;
+	gap: 5px;
+	list-style: none;
+}
+
+.controls__btn-svg {
+	align-items: center;
+	width: 45px;
+}
+
+.canvas__wrapper {
+	position: relative;
 	width: 320px;
 	height: 400px;
+}
+
+.canvas {
+	width: 100%;
+	height: 100%;
 	background-color: rgba(168, 168, 168, 0.5);
+}
+
+.score {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.score__title {
+	font-family: Westminster;
+	letter-spacing: 10px;
+	color: rgba(168, 168, 18, 0.7);
+	text-shadow: -1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+	font-weight: 900;
+}
+
+.score__result {
+	font-family: Monocraft;
+	font-weight: 900;
+}
+
+.speed__result {
+	font-family: Monocraft;
+	font-weight: 900;
 }
 
 .footer {
 	font-family: DaMiOne;
 	letter-spacing: 1px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(168, 168, 168, 0.5);
-  font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(168, 168, 168, 0.5);
+	font-size: 20px;
 	font-weight: 700;
-  padding: 10px 20px;
+	padding: 10px 20px;
 }
 
 .footer-icon {
-  display: flex;
-  align-items: center;
-	
+	display: flex;
+	align-items: center;
+
 }
 
 .author {
-	font-family: Westminster;
-	font-size: 25px;
+	font-family: Monocraft;
+	color: rgba(168, 168, 18, 0.7);
+	font-size: 15px;
+	text-shadow: -1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+	;
 	letter-spacing: 3px;
+}
+
+.modal {
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 justify-content: center;
+	position: absolute;
+	display: none;
+	width: 100%;
+	height: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(168, 168, 168, 0.8);
+	padding: 155px 20px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	text-align: center;
+}
+.active {
+	display: flex;
+}
+
+.modal__title {
+	font-family: Westminster;
+	font-size: 20px;
+	letter-spacing: 2px;
+	padding-bottom: 10px;
+	color: rgba(168, 168, 18, 0.7);
+	text-shadow: -1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+	font-weight: 900;
+}
+
+.modal__result-text  {
+	padding-bottom: 10px;
+	font-family: Monocraft;
+}
+
+.modal__btn {
+  padding: 10px 20px;
+	font-family: DaMiOne;
+  font-size: 14px;
+	letter-spacing: 1px;
+  color: white;
+  background-color: #000; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px rgba(100, 135, 3, 0.679);
+  transition: background-color 0.3s ease;
+}
+
+.modal__btn:hover {
+  background-color: #76760d;
+	font-weight: 800;
+	color: black;
+}
+
+.modal__btn:active {
+  background-color: #45a049;
+  box-shadow: 0 2px #3e8e41;
+  transform: translateY(2px);
 }
