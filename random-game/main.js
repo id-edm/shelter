@@ -1,11 +1,10 @@
 const canvas = document.querySelector(".canvas");
 const ctx = canvas.getContext("2d");
 const scoreElement = document.querySelector(".score__result");
-const modalStart = document.getElementById("modalStart");
-const startBtn = document.querySelector(".start__button");
-const modalPause = document.getElementById("modalPause");
-const modalGameOver = document.getElementById("modalGameOver");
-const restartBtn = document.querySelector(".restart__button");
+const modal = document.querySelector(".modal");
+const modalTitle = document.querySelector(".modal__title");
+const modalResultText = document.querySelector(".modal__result-text");
+const modalBtn = document.querySelector(".modal__btn");
 const speedElement = document.querySelector(".speed__result");
 
 
@@ -21,10 +20,48 @@ let gameInterval = 0;
 let gameSpeed = 300;
 let speedLevel = 1;
 
+function showModal(type) {
+	modalBtn.style.display = "flex";
+	switch (type) {
+		case 'START':
+			modalTitle.textContent = "Press START to start the game.";
+			modalResultText.textContent = "";
+			modalBtn.textContent = "START";
+			modalBtn.onclick = startGame;
+			break;
+		case 'PAUSE':
+			modalTitle.textContent = "PAUSE";
+			modalResultText.textContent = "Press spacebar to continue";
+			modalBtn.style.display = "none";
+			break;
+		case 'GAME-OVER':
+			modalTitle.textContent = "GAME OVER!";
+			modalResultText.textContent = `Your score: ${score}. Speed: ${speedLevel}`;
+			modalBtn.textContent = "RESTART";
+			modalBtn.onclick = resetGame;
+			break;
+		case 'VICTORY':
+			modalTitle.textContent = "VICTORY!";
+			modalResultText.textContent = `Congratulations! Your score: ${score}. Speed: ${speedLevel}`;
+			modalBtn.textContent = "PLAY AGAIN";
+			modalBtn.onclick = resetGame;
+			break;
+	}
+
+	modal.classList.add("active");
+}
+
+showModal('START');
+
+function hideModal() {
+	modal.classList.remove("active");
+}
 
 function startGame() {
+	hideModal();
 	isPaused = false;
 	directionSnake = { x: 20, y: 0 };
+	clearInterval(gameInterval);
 	gameInterval = setInterval(gameLoop, gameSpeed);
 	speedElement.textContent = speedLevel.toString().padStart(2, '0');
 }
@@ -47,46 +84,35 @@ function updateGameSpeed() {
 }
 
 function pauseGame() {
+	showModal('PAUSE');
 	isPaused = true;
 	clearInterval(gameInterval);
-	gameInterval = null; 
-	modalPause.classList.add("active"); 
 }
 
 function resumeGame() {
 	isPaused = false;
 	gameInterval = setInterval(gameLoop, gameSpeed);
-	modalPause.classList.remove("active");
+	modal.classList.remove("active");
 }
 
 function gameOver() {
+	showModal('GAME-OVER');
 	clearInterval(gameInterval);
 	gameInterval = null;
-	modalGameOver.classList.add("active");
 }
 
-startBtn.addEventListener("click", () => {
-	modalStart.classList.remove("active");
+modalBtn.addEventListener("click", () => {
 	startGame();
 });
 
 document.addEventListener("keydown", (event) => {
-	if (event.code === "Space") {
-		if (modalGameOver.classList.contains("active") || modalStart.classList.contains("active") ) {
-			return;
-		} 
-			if (isPaused) {
-					resumeGame();
+	if (event.code === "Space") { 
+		if (isPaused) {
+				resumeGame();
 			} else {
-					pauseGame();
+				pauseGame();
 			}
 	}
-});
-
-restartBtn.addEventListener("click", () => {
-	modalGameOver.classList.remove("active");
-	resetGame();
-	startGame();
 });
 
 function randomPosition() {
@@ -103,7 +129,6 @@ function randomPosition() {
 				return segment.x === position.x && segment.y === position.y;
 		});
 		attempts++;
-			console.log(`position: (${position.x}, ${position.y}), оn snake: ${isOnSnake}, attempts: ${attempts}`);
 	} while (isOnSnake);
 
 	return position;
@@ -161,6 +186,11 @@ function moveSnake() {
 				gameSpeed -= 20;
 				speedLevel++; 
 				updateGameSpeed();
+		}
+		if (snake.length >= 50) {
+			showModal('VICTORY');
+			clearInterval(gameInterval);
+			return;
 		}
 	} else {
 		snake.pop();
