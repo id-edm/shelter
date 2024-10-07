@@ -12,7 +12,7 @@ const speedElement = document.querySelector(".speed__result");
 const cageSize = 20
 const canvasWidth = 320
 const canvasHeight = 400
-let snake = [{ x: randomPosition().x, y: randomPosition().y }];
+let snake = [{ x: 20, y: 20 }];
 let directionSnake = {x: 0, y: 0 };
 let food = randomPosition();
 let score = 0;
@@ -90,10 +90,23 @@ restartBtn.addEventListener("click", () => {
 });
 
 function randomPosition() {
-	return {
-		x: Math.floor(Math.random() * (canvasWidth / cageSize)) * cageSize,
-		y: Math.floor(Math.random() * (canvasHeight / cageSize)) * cageSize,
-	}
+	let position;
+	let isOnSnake;
+	let attempts = 0;
+
+	do {
+			position = {
+					x: Math.floor(Math.random() * (canvasWidth / cageSize)) * cageSize,
+					y: Math.floor(Math.random() * (canvasHeight / cageSize)) * cageSize,
+			};
+			isOnSnake = snake.some(segment => {
+				return segment.x === position.x && segment.y === position.y;
+		});
+		attempts++;
+			console.log(`position: (${position.x}, ${position.y}), оn snake: ${isOnSnake}, attempts: ${attempts}`);
+	} while (isOnSnake);
+
+	return position;
 }
 
 function changeDirection(event) {
