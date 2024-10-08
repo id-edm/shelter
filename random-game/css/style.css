@@ -63,6 +63,9 @@ body {
 }
 
 .total__score {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	width: 250px;   
 }
 
@@ -228,6 +231,15 @@ body {
 	font-family: Monocraft;
 }
 
+.results-list {
+	list-style-type:  none;
+}
+
+.results__item {
+	font-family: Monocraft;
+	font-size: 10px;
+}
+
 .modal__btn {
   padding: 10px 20px;
 	font-family: DaMiOne;
@@ -252,4 +264,41 @@ body {
   background-color: #45a049;
   box-shadow: 0 2px #3e8e41;
   transform: translateY(2px);
+}
+
+/* стили таблицы */
+.results__table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 10px 0;
+	font-size: 18px;
+	text-align: center;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.results__table thead th {
+	background-color:  rgba(116, 128, 10, 0.849);
+	font-family: Westminster;
+	letter-spacing: 3px;
+	text-shadow: -1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+	color: white;
+	padding: 10px;
+	font-weight: bold;
+}
+
+.results__table td {
+	padding: 5px;
+	font-family: Monocraft;
+	font-size: 12px;
+}
+
+.results__table tr:nth-child(even) {
+	background-color: white;
+}
+
+.results__table td, .results-table th {
+	text-align: center;
 }
