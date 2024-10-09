@@ -20,6 +20,7 @@ let gameInterval = 0;
 let gameSpeed = 300;
 let speedLevel = 1;
 let hasWon = false;
+let gameStartTime;
 
 function showModal(type) {
 	modalBtn.style.display = "flex";
@@ -60,6 +61,7 @@ function hideModal() {
 
 function startGame() {
 	hideModal();
+	timeGameStart();
 	isPaused = false;
 	directionSnake = { x: 20, y: 0 };
 	clearInterval(gameInterval);
@@ -102,6 +104,14 @@ function gameOver() {
 	clearInterval(gameInterval);
 	gameInterval = null;
 	onGameEnd();
+}
+
+function timeGameStart() {
+  gameStartTime = Date.now();
+}
+
+function recordGameTime() {
+  return Math.floor((Date.now() - gameStartTime) / 1000);
 }
 
 modalBtn.addEventListener("click", () => {
@@ -296,7 +306,8 @@ function displayGameResults() {
 				row.innerHTML = `
 					<td>${result.status}</td>
 					<td>${result.score}</td>
-					<td>${result.speed}</td>`;
+					<td>${result.speed}</td>
+					<td>${result.duration} sec</td>`;
 				resultsTableBody.appendChild(row);
 			});
 		
@@ -306,6 +317,7 @@ function displayGameResults() {
 function onGameEnd() {
 	const resultScore = score;
 	const resultSpeed = speedLevel;
+	const gameDuration = recordGameTime();
 
 	let gameStatus;
   if (hasWon) { 
@@ -317,7 +329,9 @@ function onGameEnd() {
 	saveGameResult({ 
 		status: gameStatus,
 		score: resultScore, 
-		speed: resultSpeed});
+		speed: resultSpeed,
+		duration: gameDuration
+	 });
 
 	displayGameResults();
 }
