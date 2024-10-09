@@ -19,6 +19,7 @@ let isPaused = false;
 let gameInterval = 0;
 let gameSpeed = 300;
 let speedLevel = 1;
+let hasWon = false;
 
 function showModal(type) {
 	modalBtn.style.display = "flex";
@@ -35,13 +36,13 @@ function showModal(type) {
 			modalBtn.style.display = "none";
 			break;
 		case 'GAME-OVER':
-			modalTitle.textContent = "GAME OVER!";
+			modalTitle.textContent = "GAME OVER! ☠️";
 			modalResultText.textContent = `Your score: ${score}. Speed: ${speedLevel}`;
 			modalBtn.textContent = "RESTART";
 			modalBtn.onclick = resetGame;
 			break;
-		case 'VICTORY':
-			modalTitle.textContent = "VICTORY!";
+		case 'YOU WIN':
+			modalTitle.textContent = "YOU WIN! 🏆";
 			modalResultText.textContent = `Congratulations! Your score: ${score}. Speed: ${speedLevel}`;
 			modalBtn.textContent = "PLAY AGAIN";
 			modalBtn.onclick = resetGame;
@@ -73,6 +74,7 @@ function resetGame() {
 	score = 0;
 	gameSpeed = 300;
 	speedLevel = 1;
+	hasWon = false;
 	scoreElement.textContent = score.toString().padStart(2, '0');
 	speedElement.textContent = speedLevel.toString().padStart(2, '0');;
 }
@@ -99,6 +101,7 @@ function gameOver() {
 	showModal('GAME-OVER');
 	clearInterval(gameInterval);
 	gameInterval = null;
+	onGameEnd();
 }
 
 modalBtn.addEventListener("click", () => {
@@ -187,9 +190,11 @@ function moveSnake() {
 				speedLevel++; 
 				updateGameSpeed();
 		}
-		if (snake.length >= 50) {
-			showModal('VICTORY');
+		if (snake.length >= 10) {
+			showModal('YOU WIN');
+			hasWon = true;
 			clearInterval(gameInterval);
+			onGameEnd()
 			return;
 		}
 	} else {
@@ -262,4 +267,57 @@ function gameLoop() {
 	moveSnake();
 	draw(); 
 }
+
+//Local Storage
+function saveGameResult(result) {
+  let results = getGameResults();
+  results.push(result);
+	localStorage.setItem('resultsGame', JSON.stringify(results.slice(0, 10)));
+};
+
+function getGameResults() {
+	return JSON.parse(localStorage.getItem('resultsGame')) || [];
+}
+
+//таблица результатов
+function displayGameResults() {
+	const resultsTableBody = document.querySelector('.results__tbody');
+
+	resultsTableBody.innerHTML = '';
+
+	const storedResults = localStorage.getItem('resultsGame');
+	if (storedResults) {
+			const results = JSON.parse(storedResults);
+			results.forEach(result => {
+				const row = document.createElement('tr');
+				row.innerHTML = `
+					<td>${result.status}</td>
+					<td>${result.score}</td>
+					<td>${result.speed}</td>`;
+				resultsTableBody.appendChild(row);
+			});
+		
+	}
+}
+
+function onGameEnd() {
+	const resultScore = score;
+	const resultSpeed = speedLevel;
+
+	let gameStatus;
+  if (hasWon) { 
+    gameStatus = '🏆';
+  } else {
+    gameStatus = '☠️';
+  }
+	
+	saveGameResult({ 
+		status: gameStatus,
+		score: resultScore, 
+		speed: resultSpeed});
+
+	displayGameResults();
+}
+
+
 
