@@ -272,6 +272,9 @@ function gameLoop() {
 function saveGameResult(result) {
   let results = getGameResults();
   results.push(result);
+
+	results.sort((a, b) => b.score - a.score);
+
 	localStorage.setItem('resultsGame', JSON.stringify(results.slice(0, 10)));
 };
 
