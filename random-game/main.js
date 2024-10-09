@@ -88,12 +88,18 @@ function updateGameSpeed() {
 }
 
 function pauseGame() {
-	showModal('PAUSE');
-	isPaused = true;
-	clearInterval(gameInterval);
+	if (hasWon || !gameInterval) {
+		return
+	}
+	showModal("PAUSE")
+	isPaused = true
+	clearInterval(gameInterval)
 }
 
 function resumeGame() {
+	if (hasWon || !gameInterval) {
+		return
+	}
 	isPaused = false;
 	gameInterval = setInterval(gameLoop, gameSpeed);
 	modal.classList.remove("active");
@@ -200,7 +206,7 @@ function moveSnake() {
 				speedLevel++; 
 				updateGameSpeed();
 		}
-		if (snake.length >= 10) {
+		if (snake.length >= 50) {
 			showModal('YOU WIN');
 			hasWon = true;
 			clearInterval(gameInterval);
@@ -335,6 +341,8 @@ function onGameEnd() {
 
 	displayGameResults();
 }
+
+displayGameResults();
 
 
 
