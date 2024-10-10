@@ -41,6 +41,7 @@ const canvasWidth = 320
 const canvasHeight = 400
 let snake = [{ x: 20, y: 20 }];
 let directionSnake = {x: 0, y: 0 };
+let nextDirection = { x: 20, y: 0 };
 let food = randomPosition();
 let score = 0;
 let isPaused = false;
@@ -199,19 +200,19 @@ function changeDirection(event) {
 	switch (key) {
 		case "ArrowUp":
 			if (directionSnake.y === 0)
-				directionSnake = { x: 0, y: -cageSize };
+				nextDirection = { x: 0, y: -cageSize };
 					break;
 		case "ArrowDown":
 			if (directionSnake.y === 0)
-				directionSnake = { x: 0, y: cageSize };
+				nextDirection = { x: 0, y: cageSize };
 					break;
 		case "ArrowLeft":
 			if (directionSnake.x === 0)
-				directionSnake = { x: -cageSize, y: 0 };
+				nextDirection = { x: -cageSize, y: 0 };
 					break;
 		case "ArrowRight":
 			if (directionSnake.x === 0)
-				directionSnake = { x: cageSize, y: 0 };
+				nextDirection = { x: cageSize, y: 0 };
 					break;
 	}
 }
@@ -219,6 +220,7 @@ function changeDirection(event) {
 document.addEventListener('keydown', changeDirection);
 
 function moveSnake() {
+	directionSnake = nextDirection;
 	//получаем новую позицию головы змеи
 	const newHead = {
 		x: snake[0].x + directionSnake.x,
