@@ -7,12 +7,41 @@ const modalResultText = document.querySelector(".modal__result-text");
 const modalBtn = document.querySelector(".modal__btn");
 const speedElement = document.querySelector(".speed__result");
 
+const sound = {
+	tracks: [
+		{
+			play: 'start',
+			sound: 'assets/sound/start.mp3',
+		},
+		{
+			play: 'you-win',
+			sound: 'assets/sound/you-win.mp3',
+		},
+		{
+			play: 'game-over',
+			sound: 'assets/sound/game-over.mp3',
+		},
+		{
+			play: 'move',
+			sound: 'assets/sound/move.mp3',
+		},
+		{
+			play: 'eat',
+			sound: 'assets/sound/eat.mp3',
+		},
+		{
+			play: 'space',
+			sound: 'assets/sound/space.mp3',
+		},	
+	]
+};
 
 const cageSize = 20
 const canvasWidth = 320
 const canvasHeight = 400
 let snake = [{ x: 20, y: 20 }];
 let directionSnake = {x: 0, y: 0 };
+let nextDirection = { x: 20, y: 0 };
 let food = randomPosition();
 let score = 0;
 let isPaused = false;
@@ -20,6 +49,15 @@ let gameInterval = 0;
 let gameSpeed = 300;
 let speedLevel = 1;
 let hasWon = false;
+let gameStartTime;
+
+function playSound(event) {
+	const track = sound.tracks.find(track => track.play === event);
+		const audio = new Audio(track.sound);
+		audio.volume = 0.5;
+		audio.play();
+}
+
 
 function showModal(type) {
 	modalBtn.style.display = "flex";
@@ -60,6 +98,8 @@ function hideModal() {
 
 function startGame() {
 	hideModal();
+	playSound('start');
+	timeGameStart();
 	isPaused = false;
 	directionSnake = { x: 20, y: 0 };
 	clearInterval(gameInterval);
@@ -86,12 +126,20 @@ function updateGameSpeed() {
 }
 
 function pauseGame() {
-	showModal('PAUSE');
-	isPaused = true;
-	clearInterval(gameInterval);
+	if (hasWon || !gameInterval) {
+		return
+	}
+	showModal("PAUSE")
+	playSound('space');
+	isPaused = true
+	clearInterval(gameInterval)
 }
 
 function resumeGame() {
+	if (hasWon || !gameInterval) {
+		return
+	}
+	playSound('space');
 	isPaused = false;
 	gameInterval = setInterval(gameLoop, gameSpeed);
 	modal.classList.remove("active");
@@ -99,9 +147,18 @@ function resumeGame() {
 
 function gameOver() {
 	showModal('GAME-OVER');
+	playSound('game-over');
 	clearInterval(gameInterval);
 	gameInterval = null;
 	onGameEnd();
+}
+
+function timeGameStart() {
+  gameStartTime = Date.now();
+}
+
+function recordGameTime() {
+  return Math.floor((Date.now() - gameStartTime) / 1000);
 }
 
 modalBtn.addEventListener("click", () => {
@@ -143,19 +200,19 @@ function changeDirection(event) {
 	switch (key) {
 		case "ArrowUp":
 			if (directionSnake.y === 0)
-				directionSnake = { x: 0, y: -cageSize };
+				nextDirection = { x: 0, y: -cageSize };
 					break;
 		case "ArrowDown":
 			if (directionSnake.y === 0)
-				directionSnake = { x: 0, y: cageSize };
+				nextDirection = { x: 0, y: cageSize };
 					break;
 		case "ArrowLeft":
 			if (directionSnake.x === 0)
-				directionSnake = { x: -cageSize, y: 0 };
+				nextDirection = { x: -cageSize, y: 0 };
 					break;
 		case "ArrowRight":
 			if (directionSnake.x === 0)
-				directionSnake = { x: cageSize, y: 0 };
+				nextDirection = { x: cageSize, y: 0 };
 					break;
 	}
 }
@@ -163,11 +220,13 @@ function changeDirection(event) {
 document.addEventListener('keydown', changeDirection);
 
 function moveSnake() {
+	directionSnake = nextDirection;
 	//получаем новую позицию головы змеи
 	const newHead = {
 		x: snake[0].x + directionSnake.x,
 		y: snake[0].y + directionSnake.y,
 	};
+	playSound('move');
 	//выход за границы канваса
 	if (newHead.x >= canvasWidth) {
 		newHead.x = 0;
@@ -184,15 +243,17 @@ function moveSnake() {
 	if (newHead.x === food.x && newHead.y === food.y) {
 		food = randomPosition()
 		score++;
+		playSound('eat');
 		scoreElement.textContent = score.toString().padStart(2, '0');
 			if (score % 5 === 0 && gameSpeed > 100) {
 				gameSpeed -= 20;
 				speedLevel++; 
 				updateGameSpeed();
 		}
-		if (snake.length >= 10) {
+		if (snake.length >= 30) {
 			showModal('YOU WIN');
 			hasWon = true;
+			playSound('you-win');
 			clearInterval(gameInterval);
 			onGameEnd()
 			return;
@@ -272,6 +333,9 @@ function gameLoop() {
 function saveGameResult(result) {
   let results = getGameResults();
   results.push(result);
+
+	results.sort((a, b) => b.score - a.score);
+
 	localStorage.setItem('resultsGame', JSON.stringify(results.slice(0, 10)));
 };
 
@@ -293,7 +357,8 @@ function displayGameResults() {
 				row.innerHTML = `
 					<td>${result.status}</td>
 					<td>${result.score}</td>
-					<td>${result.speed}</td>`;
+					<td>${result.speed}</td>
+					<td>${result.duration} sec</td>`;
 				resultsTableBody.appendChild(row);
 			});
 		
@@ -303,6 +368,7 @@ function displayGameResults() {
 function onGameEnd() {
 	const resultScore = score;
 	const resultSpeed = speedLevel;
+	const gameDuration = recordGameTime();
 
 	let gameStatus;
   if (hasWon) { 
@@ -314,10 +380,14 @@ function onGameEnd() {
 	saveGameResult({ 
 		status: gameStatus,
 		score: resultScore, 
-		speed: resultSpeed});
+		speed: resultSpeed,
+		duration: gameDuration
+	 });
 
 	displayGameResults();
 }
+
+displayGameResults();
 
 
 
