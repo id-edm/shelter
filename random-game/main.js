@@ -7,6 +7,34 @@ const modalResultText = document.querySelector(".modal__result-text");
 const modalBtn = document.querySelector(".modal__btn");
 const speedElement = document.querySelector(".speed__result");
 
+const sound = {
+	tracks: [
+		{
+			play: 'start',
+			sound: 'assets/sound/start.mp3',
+		},
+		{
+			play: 'you-win',
+			sound: 'assets/sound/you-win.mp3',
+		},
+		{
+			play: 'game-over',
+			sound: 'assets/sound/game-over.mp3',
+		},
+		{
+			play: 'move',
+			sound: 'assets/sound/move.mp3',
+		},
+		{
+			play: 'eat',
+			sound: 'assets/sound/eat.mp3',
+		},
+		{
+			play: 'space',
+			sound: 'assets/sound/space.mp3',
+		},	
+	]
+};
 
 const cageSize = 20
 const canvasWidth = 320
@@ -21,6 +49,14 @@ let gameSpeed = 300;
 let speedLevel = 1;
 let hasWon = false;
 let gameStartTime;
+
+function playSound(event) {
+	const track = sound.tracks.find(track => track.play === event);
+		const audio = new Audio(track.sound);
+		audio.volume = 0.5;
+		audio.play();
+}
+
 
 function showModal(type) {
 	modalBtn.style.display = "flex";
@@ -61,6 +97,7 @@ function hideModal() {
 
 function startGame() {
 	hideModal();
+	playSound('start');
 	timeGameStart();
 	isPaused = false;
 	directionSnake = { x: 20, y: 0 };
@@ -92,6 +129,7 @@ function pauseGame() {
 		return
 	}
 	showModal("PAUSE")
+	playSound('space');
 	isPaused = true
 	clearInterval(gameInterval)
 }
@@ -100,6 +138,7 @@ function resumeGame() {
 	if (hasWon || !gameInterval) {
 		return
 	}
+	playSound('space');
 	isPaused = false;
 	gameInterval = setInterval(gameLoop, gameSpeed);
 	modal.classList.remove("active");
@@ -107,6 +146,7 @@ function resumeGame() {
 
 function gameOver() {
 	showModal('GAME-OVER');
+	playSound('game-over');
 	clearInterval(gameInterval);
 	gameInterval = null;
 	onGameEnd();
@@ -184,6 +224,7 @@ function moveSnake() {
 		x: snake[0].x + directionSnake.x,
 		y: snake[0].y + directionSnake.y,
 	};
+	playSound('move');
 	//выход за границы канваса
 	if (newHead.x >= canvasWidth) {
 		newHead.x = 0;
@@ -200,15 +241,17 @@ function moveSnake() {
 	if (newHead.x === food.x && newHead.y === food.y) {
 		food = randomPosition()
 		score++;
+		playSound('eat');
 		scoreElement.textContent = score.toString().padStart(2, '0');
 			if (score % 5 === 0 && gameSpeed > 100) {
 				gameSpeed -= 20;
 				speedLevel++; 
 				updateGameSpeed();
 		}
-		if (snake.length >= 50) {
+		if (snake.length >= 30) {
 			showModal('YOU WIN');
 			hasWon = true;
+			playSound('you-win');
 			clearInterval(gameInterval);
 			onGameEnd()
 			return;
