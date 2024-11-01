@@ -1,0 +1,131 @@
+/* page-main */
+
+/* .background__image{
+  background-image: url(../../images/start-screen-gradient-background.png);
+  background-size: cover;
+  min-height: 908px;
+} */
+
+.background__image {
+	background: url("../../images/noise-lines-transparent.png"),
+		radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+}
+
+.header__container {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.logo {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+}
+
+.logo__title {
+	font-weight: 400;
+	font-size: 32px;
+	line-height: 110%;
+	letter-spacing: 0.06em;
+	color: var(--color-primary);
+}
+
+.logo__subtitle {
+	text-align: center;
+	font-family: var(--second-family);
+	font-weight: 400;
+	font-size: 13px;
+	letter-spacing: 0.1em;
+	color: var(--color-light-xl);
+	margin-top: 10px;
+}
+
+.header__details {
+	display: flex;
+	align-items: center;
+}
+
+.header__list {
+	display: flex;
+	align-items: center;
+	padding-bottom: 3px;
+	gap: 36px;
+}
+
+.header__link {
+	position: relative;
+	font-family: var(--second-family);
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 160%;
+	color: var(--color-dark-s);
+	text-decoration: none;
+	transition: 0.3s ease;
+}
+
+.header__link:hover {
+	color: var(--color-light-s);
+}
+
+.header__link:focus {
+	outline: none;
+}
+
+.header__link-pets {
+	color: var(--color-dark-l);
+}
+.header__link-pets:hover {
+	color: var(--color-dark-3xl);
+}
+
+.disabled-link {
+	pointer-events: none;
+	color: var(--color-light-s);
+}
+
+.underline {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+/* подчеркивание ссылок в header */
+.underline::after {
+	content: "";
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	display: block;
+	width: 100%;
+	background: var(--color-primary);
+	height: 3px;
+	transition: 0.1s, opacity 0.1s;
+	border-radius: 100px;
+	opacity: 1;
+}
+
+/* .underline:active::after {
+  width: 100%;
+  opacity: 1
+} */
+
+/* page-our-pets */
+
+.logo__title-pets {
+	color: var(--color-dark-l);
+}
+
+.logo__subtitle-pets {
+	color: var(--color-dark-3xl);
+}
+
+.header__item .underline-pets {
+	color: var(--color-dark-3xl);
+}
+
+.header__link-pets:focus {
+	outline: none;
+}

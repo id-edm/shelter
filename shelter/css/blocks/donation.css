@@ -1,0 +1,87 @@
+.donation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 80px;
+	padding-bottom: 100px;
+	background: var(--color-light-l)
+}
+
+.donation__container {
+	display: flex;
+	gap: 30px;
+}
+
+.donation__image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.donation__pets {
+	display: block;
+}
+
+.donation__description {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	max-width: 380px;
+	gap: 20px;
+}
+
+.donation__title {
+	max-width: 300px;
+}
+
+.bank__details {
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 110%;
+	letter-spacing: 0.06em;
+	color: var(--color-dark-l);
+}
+
+.number__card-link {
+	text-decoration: none;
+}
+
+.donation__card {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 15px;
+	padding: 10px 15px;
+	border-radius: 9px;
+	background: var(--color-primary);
+	transition: 0.3s ease;
+}
+
+.donation__card:hover {
+	background: var(--color-primary-light);
+}
+
+.number__card {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 115%;
+	letter-spacing: 0.06em;
+	color: var(--color-dark-l);
+}
+
+.number__card-icon {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 115%;
+	letter-spacing: 0.06em;
+	color: var(--color-dark-l);
+}
+
+.bank__details-info {
+	font-style: italic;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 150%;
+	color: var(--color-dark-m);
+}

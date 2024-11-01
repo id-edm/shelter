@@ -1,0 +1,49 @@
+.button__pagination {
+	display: flex;
+	gap: 20px;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border-radius: 100px;
+	border-color: aqua;
+	width: 52px;
+	height: 52px;
+}
+
+.btn__color-border {
+	border: 2px solid var(--color-primary);
+	transition: 0.3s ease-in-out;
+}
+
+.btn__color-border:hover {
+	border: var(--color-primary);
+	background: var(--color-primary-light);
+}
+
+.button-disabled {
+	pointer-events: none;
+	border: 2px solid var(--color-dark-s);
+}
+
+.button__inner {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 115%;
+	letter-spacing: 0.06em;
+	text-align: center;
+	color: var(--color-dark-s);
+}
+
+.btn__color-center {
+	background: var(--color-primary);
+	cursor: default;
+	border: none;
+}
+
+.btn__color span  {
+	color: var(--color-dark-3xl);
+}
